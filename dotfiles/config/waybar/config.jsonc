@@ -1,0 +1,137 @@
+{
+    "height": 40,
+    "margin-top": 5,
+    "margin-left": 10,
+    "margin-bottom": 0,
+    "margin-right": 10,
+    "spacing": 5,
+    "layer": "top",
+    "modules-left": [
+        "keyboard-state",
+        "cpu",
+        "memory",
+        "disk",
+        "custom/updates",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "backlight",
+        "battery",
+        "wireplumber",
+        "tray",
+        "clock"
+    ],
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+    "battery": {
+        "interval": 30,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
+    },
+    "clock": {
+        "format": "󰥔 {:%H:%M}",
+        "tooltip": true,
+        "tooltip-format": "{: %A, %B %e %Y}"
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "urgent": "",
+            "active": "",
+            "default": ""
+        }
+    },
+    "backlight": {
+        "device": "amdgpu_bl1",
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 6,
+        "tooltip": false
+    },
+    "keyboard-state": {
+        "capslock": true,
+        "format": "{icon}{name}",
+        "format-icons": {
+            "locked": " ",
+            "unlocked": " "
+        }
+    },
+    "custom/updates": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/updates",
+        "interval": 3600,
+        "tooltip": false
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "  {usage}%",
+        "max-length": 10,
+        "on-click": "alacritty -o window.startup_mode=Fullscreen --title btop -e btop"
+    },
+    "disk": {
+        "interval": 30,
+        "format": "󰋊 {percentage_used}%",
+        "path": "/",
+        "tooltip": true,
+        "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)",
+        "on-click": "alacritty -o window.startup_mode=Fullscreen --title btop -e btop"
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "max-length": 10,
+        "tooltip": true,
+        "tooltip-format": "Memory - {used:0.1f}GB used",
+        "on-click": "alacritty -o window.startup_mode=Fullscreen --title btop -e btop"
+    },
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁",
+        "on-click": "helvum",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
+    },
+    "hyprland/window" : {
+        "format": "󰈈 {}",
+    }
+}

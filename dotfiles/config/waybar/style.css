@@ -1,0 +1,87 @@
+* {
+    font-family: "MesloLGS NF";
+    font-weight: bold;
+    font-size: 16px;
+}
+
+window#waybar {
+    background-color: #24283b;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    border-radius: 10px;
+    border: 2px solid #434b6f;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* WORKSPACES */
+#workspaces button {
+    padding: 0 0px;
+    color: #414868;
+}
+
+#workspaces button.focused {
+    background-color: transparent;
+}
+
+#workspace button.hover {
+    background-color: transparent;
+}
+
+#workspaces button.active {
+    color: #c0caf5;
+}
+
+#workspaces {
+    padding: 0px 10px;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#backlight,
+#tray,
+#idle_inhibitor,
+#bluetooth,
+#keyboard-state,
+#wireplumber,
+#window,
+#custom-updates {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #c0caf5;
+}
+
+#clock {
+    padding-right: 20px;
+}
+
+#window {
+    color: #7aa2f7;
+}
+
+#keyboard-state {
+    padding-left: 20px;
+}
+
+#battery.critical:not(.charging) {
+    color: #f7768e;
+}
+
+#battery.discharging {
+    color: #e0af68;
+}
+
+#battery.charging,
+#battery.full,
+#battery.plugged {
+    color: #9ece6a;
+}
+
+#keyboard-state>label.locked {
+    color: #e0af68;
+}

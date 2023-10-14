@@ -1,0 +1,76 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: dotfiles
+  keepdot: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
+  longkey: false
+dotfiles:
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
+  f_p10k.zsh:
+    src: p10k.zsh
+    dst: ~/.p10k.zsh
+  f_tmux.conf:
+    src: tmux.conf
+    dst: ~/.tmux.conf
+  d_alacritty:
+    src: config/alacritty
+    dst: ~/.config/alacritty
+  d_hypr:
+    src: config/hypr
+    dst: ~/.config/hypr
+  d_mako:
+    src: config/mako
+    dst: ~/.config/mako
+  d_nvim:
+    src: config/nvim
+    dst: ~/.config/nvim
+  d_nwg-bar:
+    src: config/nwg-bar
+    dst: ~/.config/nwg-bar
+  d_swaylock:
+    src: config/swaylock
+    dst: ~/.config/swaylock
+  d_tofi:
+    src: config/tofi
+    dst: ~/.config/tofi
+  d_waybar:
+    src: config/waybar
+    dst: ~/.config/waybar
+profiles:
+  desktop:
+    dotfiles:
+    - f_zshrc
+    - f_p10k.zsh
+    - f_tmux.conf
+    - d_alacritty
+    - d_hypr
+    - d_mako
+    - d_nvim
+    - d_nwg-bar
+    - d_swaylock
+    - d_tofi
+    - d_waybar
+  laptop:
+    dotfiles:
+    - f_zshrc
+    - f_p10k.zsh
+    - f_tmux.conf
+    - d_alacritty
+    - d_hypr
+    - d_mako
+    - d_nvim
+    - d_nwg-bar
+    - d_swaylock
+    - d_tofi
+    - d_waybar
+  wsl:
+    dotfiles:
+    - f_zshrc
+    - f_p10k.zsh
+    - f_tmux.conf
+    - d_nvim
