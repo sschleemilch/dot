@@ -47,3 +47,32 @@ My dotfiles handled by [dotdrop](https://github.com/deadc0de6/dotdrop).
 - [grimblast](https://github.com/hyprwm/contrib#grimblast)
 - firefox
 
+### `wsl`
+
+- Enabled color schema "Catppuccin Macchiato"
+
+```json
+{
+  "name": "Catppuccin Macchiato",
+  "cursorColor": "#F4DBD6",
+  "selectionBackground": "#5B6078",
+  "background": "#24273A",
+  "foreground": "#CAD3F5",
+  "black": "#494D64",
+  "red": "#ED8796",
+  "green": "#A6DA95",
+  "yellow": "#EED49F",
+  "blue": "#8AADF4",
+  "purple": "#F5BDE6",
+  "cyan": "#8BD5CA",
+  "white": "#B8C0E0",
+  "brightBlack": "#5B6078",
+  "brightRed": "#ED8796",
+  "brightGreen": "#A6DA95",
+  "brightYellow": "#EED49F",
+  "brightBlue": "#8AADF4",
+  "brightPurple": "#F5BDE6",
+  "brightCyan": "#8BD5CA",
+  "brightWhite": "#A5ADCB"
+}
+```
