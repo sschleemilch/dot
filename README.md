@@ -2,6 +2,11 @@
 
 My dotfiles handled by [dotdrop](https://github.com/deadc0de6/dotdrop).
 
+## Impressions
+
+![nvim-tmux](./doc/impressions_nvim_tmux.png)
+![desktop](./doc/impressions_desktop.png)
+
 ## Usage
 
 1. [Install](https://dotdrop.readthedocs.io/en/latest/installation/) dotdrop as a package.
