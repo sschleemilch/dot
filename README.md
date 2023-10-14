@@ -11,7 +11,7 @@ My dotfiles handled by [dotdrop](https://github.com/deadc0de6/dotdrop).
 
 1. [Install](https://dotdrop.readthedocs.io/en/latest/installation/) dotdrop as a package.
 1. Clone the repository into a path of your choice, e.g. `~/.config/dot`.
-1. Run `dotdrop` commands from within that repo or create an alias with `dotdrop="dotdrop --cfg=<repo>/config.yaml"`.
+1. Run `dotdrop` commands from within that repo or create an alias with `alias dotdrop='dotdrop --cfg=<repo>/config.yaml'`.
 1. `dotdrop install -p <PROFILE>` (check `dotdrop profiles` for available ones)
 
 ## Requirements
@@ -49,7 +49,7 @@ My dotfiles handled by [dotdrop](https://github.com/deadc0de6/dotdrop).
 
 ### `wsl`
 
-- Enabled color schema "Catppuccin Macchiato"
+- Enabled color schema "Catppuccin Macchiato" in the hosting terminal emulator. E.g. for Windows Terminal:
 
 ```json
 {

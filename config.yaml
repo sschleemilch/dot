@@ -44,30 +44,10 @@ dotfiles:
 profiles:
   desktop:
     dotfiles:
-    - f_zshrc
-    - f_p10k.zsh
-    - f_tmux.conf
-    - d_alacritty
-    - d_hypr
-    - d_mako
-    - d_nvim
-    - d_nwg-bar
-    - d_swaylock
-    - d_tofi
-    - d_waybar
+    - ALL
   laptop:
     dotfiles:
-    - f_zshrc
-    - f_p10k.zsh
-    - f_tmux.conf
-    - d_alacritty
-    - d_hypr
-    - d_mako
-    - d_nvim
-    - d_nwg-bar
-    - d_swaylock
-    - d_tofi
-    - d_waybar
+    - ALL
   wsl:
     dotfiles:
     - f_zshrc
