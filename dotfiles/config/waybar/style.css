@@ -1,3 +1,5 @@
+@import "macchiato.css";
+
 * {
     font-family: "MesloLGS NF";
     font-weight: bold;
@@ -5,11 +7,11 @@
 }
 
 window#waybar {
-    background-color: #24283b;
+    background-color: @surface0;
     transition-property: background-color;
     transition-duration: 0.5s;
     border-radius: 10px;
-    border: 2px solid #434b6f;
+    border: 2px solid @overlay1;
 }
 
 window#waybar.hidden {
@@ -19,7 +21,7 @@ window#waybar.hidden {
 /* WORKSPACES */
 #workspaces button {
     padding: 0 0px;
-    color: #414868;
+    color: @overlay0;
 }
 
 #workspaces button.focused {
@@ -31,7 +33,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-    color: #c0caf5;
+    color: @blue;
 }
 
 #workspaces {
@@ -53,7 +55,7 @@ window#waybar.hidden {
 #custom-updates {
     padding-left: 10px;
     padding-right: 10px;
-    color: #c0caf5;
+    color: @text;
 }
 
 #clock {
@@ -61,7 +63,7 @@ window#waybar.hidden {
 }
 
 #window {
-    color: #7aa2f7;
+    color: @teal;
 }
 
 #keyboard-state {
@@ -69,19 +71,19 @@ window#waybar.hidden {
 }
 
 #battery.critical:not(.charging) {
-    color: #f7768e;
+    color: @red;
 }
 
 #battery.discharging {
-    color: #e0af68;
+    color: @yellow;
 }
 
 #battery.charging,
 #battery.full,
 #battery.plugged {
-    color: #9ece6a;
+    color: @green;
 }
 
 #keyboard-state>label.locked {
-    color: #e0af68;
+    color: @mauve;
 }

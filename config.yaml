@@ -41,6 +41,12 @@ dotfiles:
   d_waybar:
     src: config/waybar
     dst: ~/.config/waybar
+  d_bat:
+    src: config/bat
+    dst: ~/.config/bat
+  d_btop:
+    src: config/btop
+    dst: ~/.config/btop
 profiles:
   desktop:
     dotfiles:
@@ -54,3 +60,5 @@ profiles:
     - f_p10k.zsh
     - f_tmux.conf
     - d_nvim
+    - d_bat
+    - d_btop
