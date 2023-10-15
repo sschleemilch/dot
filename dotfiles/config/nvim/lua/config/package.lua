@@ -53,7 +53,7 @@ local plugins = {
     {
         "lewis6991/gitsigns.nvim",
         branch = "release",
-        config = setup("gitsigns"),
+        config = delegate("gitsigns"),
     },
     {
         "asiryk/auto-hlsearch.nvim",
