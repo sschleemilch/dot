@@ -92,22 +92,28 @@ local plugins = {
         config = setup("nvim-autopairs"),
     },
     {
-        "hrsh7th/nvim-cmp",
-        config = delegate("lsp"),
+        "VonHeikemen/lsp-zero.nvim",
+        branch = "v2.x",
+        config = delegate("lsp-zero"),
         dependencies = {
+            { "neovim/nvim-lspconfig" },
+            { "williamboman/mason-lspconfig.nvim" },
+            { "hrsh7th/nvim-cmp" },
+            { "hrsh7th/cmp-path" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "hrsh7th/cmp-nvim-lua" },
+            { "L3MON4D3/LuaSnip" },
             {
-                "L3MON4D3/LuaSnip",
+                "jose-elias-alvarez/null-ls.nvim",
                 dependencies = {
-                    "rafamadriz/friendly-snippets"
-                }
+                    "williamboman/mason.nvim",
+                    build = function()
+                        pcall(vim.cmd.MasonUpdate)
+                    end,
+                },
             },
-            {
-                "saadparwaiz1/cmp_luasnip",
-                "hrsh7th/cmp-nvim-lua",
-                "hrsh7th/cmp-nvim-lsp",
-                "hrsh7th/cmp-buffer",
-                "hrsh7th/cmp-path",
-            }
+            { "jay-babu/mason-null-ls.nvim" },
         },
     },
 }
