@@ -87,7 +87,7 @@ local plugins = {
         "neovim/nvim-lspconfig",
         config = setup("mason"),
     },
-    { 
+    {
         "windwp/nvim-autopairs",
         config = setup("nvim-autopairs"),
     },
@@ -115,6 +115,10 @@ local plugins = {
             },
             { "jay-babu/mason-null-ls.nvim" },
         },
+    },
+    {
+        "nvim-pack/nvim-spectre",
+        config = delegate("spectre"),
     },
 }
 
