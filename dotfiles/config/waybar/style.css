@@ -70,8 +70,14 @@ window#waybar.hidden {
     padding-left: 20px;
 }
 
+#battery.warning:not(.charging) {
+    color: @surface0;
+    background-color: @yellow;
+}
+
 #battery.critical:not(.charging) {
-    color: @red;
+    color: @surface0;
+    background-color: @red;
 }
 
 #battery.discharging {
@@ -82,6 +88,7 @@ window#waybar.hidden {
 #battery.full,
 #battery.plugged {
     color: @green;
+    background-color: transparent;
 }
 
 #keyboard-state>label.locked {
