@@ -12,7 +12,6 @@
         "memory",
         "disk",
         "custom/updates",
-        "hyprland/window"
     ],
     "modules-center": [
         "hyprland/workspaces"
@@ -25,8 +24,8 @@
         "clock"
     ],
     "tray": {
-        "icon-size": 20,
-        "spacing": 10
+        "icon-size": 25,
+        "spacing": 8
     },
     "battery": {
         "interval": 30,

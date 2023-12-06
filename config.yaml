@@ -48,9 +48,6 @@ dotfiles:
     src: config/btop
     dst: ~/.config/btop
 profiles:
-  desktop:
-    dotfiles:
-    - ALL
   laptop:
     dotfiles:
     - ALL
