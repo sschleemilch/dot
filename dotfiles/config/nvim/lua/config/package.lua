@@ -17,6 +17,11 @@ end
 
 local plugins = {
     { "catppuccin/nvim", name = "catppuccin", config = delegate("catppuccin") },
+    { "nvim-lua/plenary.nvim" },
+    {
+        "junegunn/fzf",
+        build = init_call,
+    },
     {
         "nvim-telescope/telescope.nvim",
         branch = "0.1.x",
@@ -33,13 +38,6 @@ local plugins = {
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
         config = delegate("treesitter-textobjects"),
-    },
-    {
-        "nvim-treesitter/nvim-treesitter-context",
-    },
-    {
-        "junegunn/fzf",
-        build = init_call,
     },
     { "nvim-tree/nvim-web-devicons" },
     {
@@ -88,10 +86,6 @@ local plugins = {
         config = setup("mason"),
     },
     {
-        "windwp/nvim-autopairs",
-        config = setup("nvim-autopairs"),
-    },
-    {
         "VonHeikemen/lsp-zero.nvim",
         branch = "v2.x",
         config = delegate("lsp-zero"),
@@ -120,6 +114,11 @@ local plugins = {
         "nvim-pack/nvim-spectre",
         config = delegate("spectre"),
     },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        opts = {} -- this is equalent to setup({}) function
+    }
 }
 
 local opts = {}

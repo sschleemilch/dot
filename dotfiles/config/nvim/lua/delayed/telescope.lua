@@ -3,6 +3,9 @@ local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Telescope search files" })
 vim.keymap.set("n", "<C-g>", builtin.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<C-b>", builtin.buffers, { desc = "Telescope search buffers" })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Telescope help tags" })
+vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = "Telescope git files" })
+vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = "Telescope nvim marks" })
 
 require("telescope").setup({
     defaults = {
