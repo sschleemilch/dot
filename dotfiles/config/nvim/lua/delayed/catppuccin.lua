@@ -1,10 +1,6 @@
 require("catppuccin").setup({
     flavour = "macchiato",
-    transparent_background = true,
-    styles = {
-        conditionals = {}, -- overwrite conditionals not to be italic
-    },
+    transparent_background = true
 })
 
-vim.cmd.colorscheme "catppuccin"
-
+vim.cmd.colorscheme("catppuccin")

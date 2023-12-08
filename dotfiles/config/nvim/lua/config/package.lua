@@ -78,49 +78,77 @@ local plugins = {
     },
     { "christoomey/vim-tmux-navigator" },
     {
-        "williamboman/mason.nvim",
-        config = setup("mason"),
-    },
-    {
-        "neovim/nvim-lspconfig",
-        config = setup("mason"),
-    },
-    {
-        "VonHeikemen/lsp-zero.nvim",
-        branch = "v2.x",
-        config = delegate("lsp-zero"),
-        dependencies = {
-            { "neovim/nvim-lspconfig" },
-            { "williamboman/mason-lspconfig.nvim" },
-            { "hrsh7th/nvim-cmp" },
-            { "hrsh7th/cmp-path" },
-            { "hrsh7th/cmp-buffer" },
-            { "hrsh7th/cmp-nvim-lsp" },
-            { "hrsh7th/cmp-nvim-lua" },
-            { "L3MON4D3/LuaSnip" },
-            {
-                "jose-elias-alvarez/null-ls.nvim",
-                dependencies = {
-                    "williamboman/mason.nvim",
-                    build = function()
-                        pcall(vim.cmd.MasonUpdate)
-                    end,
-                },
-            },
-            { "jay-babu/mason-null-ls.nvim" },
-        },
-    },
-    {
         "nvim-pack/nvim-spectre",
         config = delegate("spectre"),
     },
     {
-        'windwp/nvim-autopairs',
+        "windwp/nvim-autopairs",
         event = "InsertEnter",
         opts = {} -- this is equalent to setup({}) function
-    }
+    },
+    -- LSP Support
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            { "hrsh7th/cmp-nvim-lsp" },
+        }
+    },
+    -- Autocompletion
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            { "L3MON4D3/LuaSnip" }
+        },
+    },
+    -- LSP Setup
+    { "williamboman/mason.nvim" },
+    { "williamboman/mason-lspconfig.nvim" },
+    {
+        "VonHeikemen/lsp-zero.nvim",
+        branch = "v3.x",
+        config = false,
+        lazy = true
+    },
 }
 
 local opts = {}
 
 require("lazy").setup({ plugins, opts })
+
+
+-- LSP CONFIG
+
+local lsp_zero = require("lsp-zero")
+
+lsp_zero.on_attach(function(_, bufnr)
+    lsp_zero.default_keymaps({ buffer = bufnr })
+end)
+
+require("mason").setup({})
+require("mason-lspconfig").setup({
+  handlers = {
+    lsp_zero.default_setup,
+    lua_ls = function()
+      -- (Optional) configure lua language server
+      local lua_opts = lsp_zero.nvim_lua_ls()
+      require("lspconfig").lua_ls.setup(lua_opts)
+    end,
+  }
+})
+
+
+local cmp = require("cmp")
+local cmp_action = lsp_zero.cmp_action()
+
+cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+        ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+        -- Navigate between snippet placeholder
+        ["<C-f>"] = cmp_action.luasnip_jump_forward(),
+        ["<C-b>"] = cmp_action.luasnip_jump_backward(),
+        -- Ctrl+C to trigger completion menu (C-Space is used by tmux)
+        ["<C-c>"] = cmp.mapping.complete()
+    })
+})

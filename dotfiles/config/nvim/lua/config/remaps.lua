@@ -50,4 +50,3 @@ map("v", ">", ">gv")
 -- leader-o/O inserts blank line below/above
 map("n", "<leader>o", "o<ESC>")
 map("n", "<leader>O", "O<ESC>")
-
