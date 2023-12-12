@@ -20,27 +20,9 @@ dotfiles:
   d_alacritty:
     src: config/alacritty
     dst: ~/.config/alacritty
-  d_hypr:
-    src: config/hypr
-    dst: ~/.config/hypr
-  d_mako:
-    src: config/mako
-    dst: ~/.config/mako
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
-  d_nwg-bar:
-    src: config/nwg-bar
-    dst: ~/.config/nwg-bar
-  d_swaylock:
-    src: config/swaylock
-    dst: ~/.config/swaylock
-  d_tofi:
-    src: config/tofi
-    dst: ~/.config/tofi
-  d_waybar:
-    src: config/waybar
-    dst: ~/.config/waybar
   d_bat:
     src: config/bat
     dst: ~/.config/bat
@@ -48,14 +30,6 @@ dotfiles:
     src: config/btop
     dst: ~/.config/btop
 profiles:
-  laptop:
+  generic:
     dotfiles:
     - ALL
-  wsl:
-    dotfiles:
-    - f_zshrc
-    - f_p10k.zsh
-    - f_tmux.conf
-    - d_nvim
-    - d_bat
-    - d_btop
