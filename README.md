@@ -2,11 +2,6 @@
 
 My dotfiles handled by [dotdrop](https://github.com/deadc0de6/dotdrop).
 
-## Impressions
-
-![nvim-tmux](./doc/impressions_nvim_tmux.png)
-![desktop](./doc/impressions_desktop.png)
-
 ## Usage
 
 1. [Install](https://dotdrop.readthedocs.io/en/latest/installation/) dotdrop as a package.
@@ -15,8 +10,6 @@ My dotfiles handled by [dotdrop](https://github.com/deadc0de6/dotdrop).
 1. `dotdrop install -p <PROFILE>` (check `dotdrop profiles` for available ones)
 
 ## Requirements
-
-### Common
 
 - zsh
 - [exa](https://itsfoss.com/exa/)
@@ -31,21 +24,6 @@ My dotfiles handled by [dotdrop](https://github.com/deadc0de6/dotdrop).
 - tmux
 - [tpm](https://github.com/tmux-plugins/tpm)
 - nvim (neovim)
-
-### `desktop` + `laptop`
-
-- Arch Linux installation
-- [hyprland](https://wiki.hyprland.org/)
-- [mako](https://github.com/emersion/mako)
-- [nwg-bar](https://github.com/nwg-piotr/nwg-bar)
-- [swaylock](https://github.com/swaywm/swaylock)
-- [tofi](https://github.com/philj56/tofi)
-- [waybar](https://github.com/Alexays/Waybar)
-- nm-applet
-- blueman-applet
-- Some `*.jpg` wallpapers in `~/wallpapers`
-- [grimblast](https://github.com/hyprwm/contrib#grimblast)
-- firefox
 
 ### `wsl`
 
