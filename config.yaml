@@ -1,5 +1,5 @@
 config:
-  backup: true
+  backup: false
   banner: false
   create: true
   dotpath: dotfiles
@@ -8,12 +8,6 @@ config:
   link_on_import: nolink
   longkey: false
 dotfiles:
-  f_zshrc:
-    src: zshrc
-    dst: ~/.zshrc
-  f_p10k.zsh:
-    src: p10k.zsh
-    dst: ~/.p10k.zsh
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
@@ -29,6 +23,9 @@ dotfiles:
   d_btop:
     src: config/btop
     dst: ~/.config/btop
+  d_zsh:
+    src: config/zsh
+    dst: ~/.config/zsh
 profiles:
   generic:
     dotfiles:
