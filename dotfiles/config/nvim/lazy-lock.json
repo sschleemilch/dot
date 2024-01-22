@@ -6,6 +6,7 @@
   "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },
   "fzf": { "branch": "master", "commit": "d21d5c9510170d74a7f959309da720b6df72ca01" },
   "gitsigns.nvim": { "branch": "release", "commit": "6ef8c54fb526bf3a0bc4efb0b2fe8e6d9a7daed2" },
+  "harpoon": { "branch": "harpoon2", "commit": "2cd4e03372f7ee5692c8caa220f479ea07970f17" },
   "indent-blankline.nvim": { "branch": "master", "commit": "7206c77cb931f79885fc47f88ae18f99148392eb" },
   "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
   "lsp-zero.nvim": { "branch": "v3.x", "commit": "aad69d17dbe3a7f7d7f9030e8f626f41a7083f71" },

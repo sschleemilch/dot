@@ -109,6 +109,12 @@ local plugins = {
         config = false,
         lazy = true
     },
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = delegate("harpoon"),
+    },
 }
 
 local opts = {}
