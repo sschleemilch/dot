@@ -1,6 +1,7 @@
 # DOTFILES
 
 My dotfiles handled by [dotdrop](https://github.com/deadc0de6/dotdrop).
+Colorschemes are [Catppuccin Macchiato](https://github.com/catppuccin/catppuccin)
 
 ## Usage
 
@@ -14,7 +15,8 @@ My dotfiles handled by [dotdrop](https://github.com/deadc0de6/dotdrop).
 - zsh
 - [exa](https://itsfoss.com/exa/)
 - [bat](https://github.com/sharkdp/bat)
-- Nerd Font [MesloLGS NF](https://github.com/romkatv/powerlevel10k#manual-font-installation)
+- btop
+- Nerd Font [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip)
 - (OPTIONAL) [fzf](https://github.com/junegunn/fzf)
 - tmux
 - [tpm](https://github.com/tmux-plugins/tpm)

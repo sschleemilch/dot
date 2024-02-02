@@ -26,7 +26,30 @@ dotfiles:
   d_zsh:
     src: config/zsh
     dst: ~/.config/zsh
+  d_hypr:
+    src: config/hypr
+    dst: ~/.config/hypr
+  d_swaylock:
+    src: config/swaylock
+    dst: ~/.config/swaylock
+  d_swaync:
+    src: config/swaync
+    dst: ~/.config/swaync
+  d_tofi:
+    src: config/tofi
+    dst: ~/.config/tofi
+  d_waybar:
+    src: config/waybar
+    dst: ~/.config/waybar
 profiles:
   generic:
+    dotfiles:
+    - f_tmux.conf
+    - d_alacritty
+    - d_nvim
+    - d_bat
+    - d_btop
+    - d_zsh
+  arch:
     dotfiles:
     - ALL

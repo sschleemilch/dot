@@ -1,0 +1,113 @@
+@import "macchiato.css";
+
+* {
+    font-family: "FiraCode Nerd Font";
+    /* font-weight: bold; */
+    font-size: 16px;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+
+/* LEFT */
+#cpu,
+#memory,
+#disk,
+#custom-updates {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: @surface0;
+}
+#custom-updates {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding-right: 20px;
+    color: @peach;
+}
+#cpu {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    padding-left: 20px;
+    color: @teal;
+}
+#memory {
+    color: @sapphire;
+}
+#disk {
+    color: @sky;
+}
+
+/* MIDDLE */
+#workspaces {
+    background-color: @surface0;
+    border-radius: 1rem;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#workspaces button {
+    color: @overlay0;
+}
+#workspaces button.focused {
+    background-color: transparent;
+}
+#workspace button.hover {
+    background-color: transparent;
+}
+#workspaces button.active {
+    color: @blue;
+}
+
+/* RIGHT */
+#backlight,
+#wireplumber,
+#battery,
+#clock {
+    background-color: @surface0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#backlight {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    padding-left: 20px;
+    color: @text;
+}
+#wireplumber {
+    color: @text;
+}
+#clock {
+    color: @text;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding-right: 20px;
+}
+#battery {
+    color: @text;
+}
+
+#battery.warning:not(.charging) {
+    color: @surface0;
+    background-color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+    color: @surface0;
+    background-color: @red;
+}
+
+#battery.discharging {
+    color: @yellow;
+}
+
+#battery.charging,
+#battery.full,
+#battery.plugged {
+    color: @green;
+    background-color: transparent;
+}
