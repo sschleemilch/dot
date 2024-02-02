@@ -1,5 +1,5 @@
 {
-    "height": 30,
+    "height": 36,
     "margin-top": 10,
     "margin-left": 10,
     "margin-bottom": 0,
@@ -10,7 +10,8 @@
         "cpu",
         "memory",
         "disk",
-        "custom/updates"
+        "custom/updates",
+        "wlr/taskbar"
     ],
     "modules-center": [
         "hyprland/workspaces"
@@ -63,8 +64,8 @@
         },
         "format-icons": {
             "urgent": "",
-            "active": "",
-            "default": ""
+            "active": "",
+            "default": ""
         }
     },
     "backlight": {
@@ -97,7 +98,6 @@
     "cpu": {
         "interval": 5,
         "format": " {usage}%",
-        "max-length": 10,
         "on-click": "alacritty -o window.startup_mode=Fullscreen --title btop -e btop"
     },
     "disk": {
@@ -110,8 +110,7 @@
     },
     "memory": {
         "interval": 10,
-        "format": " {}%",
-        "max-length": 10,
+        "format": " {percentage}%",
         "tooltip": true,
         "tooltip-format": "Memory - {used:0.1f}GB used",
         "on-click": "alacritty -o window.startup_mode=Fullscreen --title btop -e btop"
@@ -128,5 +127,19 @@
     },
     "hyprland/window" : {
         "format": "󰈈 {}",
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 14,
+        "icon-theme": "Papirus",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+            "Alacritty"
+        ],
+        "rewrite": {
+            "Firefox Web Browser": "Firefox"
+        }
     }
 }
