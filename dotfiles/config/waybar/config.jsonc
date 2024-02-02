@@ -1,9 +1,9 @@
 {
-    "height": 40,
-    "margin-top": 5,
-    "margin-left": 5,
+    "height": 30,
+    "margin-top": 10,
+    "margin-left": 10,
     "margin-bottom": 0,
-    "margin-right": 5,
+    "margin-right": 10,
     "spacing": 0,
     "layer": "top",
     "modules-left": [
@@ -59,16 +59,11 @@
         "format": "{icon}",
         "on-click": "activate",
         "persistent-workspaces": {
-            "*": 5
+            "*": 8
         },
         "format-icons": {
-            "1": "󰲠",
-            "2": "󰲢",
-            "3": "󰲤",
-            "4": "󰲦",
-            "5": "󰲨",
             "urgent": "",
-            // "active": "",
+            "active": "",
             "default": ""
         }
     },
@@ -100,7 +95,7 @@
         "tooltip": false
     },
     "cpu": {
-        "interval": 10,
+        "interval": 5,
         "format": " {usage}%",
         "max-length": 10,
         "on-click": "alacritty -o window.startup_mode=Fullscreen --title btop -e btop"
