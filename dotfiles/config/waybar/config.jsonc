@@ -1,5 +1,8 @@
 {
     "height": 36,
+    {%@@ if profile == "barchtop" @@%}
+    "output": "DP-1",
+    {%@@ endif @@%}
     "exclusive": true,
     "margin-top": 10,
     "margin-left": 10,
@@ -20,15 +23,19 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
-        "backlight",
-        "custom/separator#line",
         "wireplumber",
         "custom/separator#line",
+        "backlight",
+        {%@@ if profile == "baptop" @@%}
+        "custom/separator#line",
+        {%@@ endif @@%}
         "bluetooth",
         "custom/separator#line",
-        "network",
-        "custom/separator#line",
         "battery",
+        {%@@ if profile == "baptop" @@%}
+        "custom/separator#line",
+        {%@@ endif @@%}
+        "network",
         "clock",
         "custom/separator#line",
         "group/power"
@@ -70,9 +77,11 @@
     "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
+        {%@@ if profile == "baptop" @@%}
         "persistent-workspaces": {
             "*": 8
         },
+        {%@@ endif @@%}
         "format-icons": {
             "urgent": "",
             "active": "",
@@ -141,7 +150,7 @@
         "interval": 10,
         "tooltip": false,
         "format": " {temperatureC}°C",
-        "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input"
+        "hwmon-path": "/sys/class/hwmon/hwmon{{@@ hwmon @@}}/temp1_input"
     },
 
     "group/network": {
@@ -153,7 +162,7 @@
         "drawer": {}
     },
     "network": {
-        "interface": "wlp1s0",
+        "interface": "{{@@ wifi @@}}",
         "format": "{ifname}",
         "format-wifi": "{icon}",
         "format-ethernet": "󰌘",

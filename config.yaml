@@ -50,6 +50,15 @@ profiles:
     - d_bat
     - d_btop
     - d_zsh
-  arch:
+  baptop:
     dotfiles:
     - ALL
+    variables:
+      wifi: wlp1s0
+      hwmon: 5
+  barchtop:
+    dotfiles:
+    - ALL
+    variables:
+      wifi: wlp0s20f3
+      hwmon: 4

@@ -119,19 +119,16 @@ tooltip label {
     padding-right: 10px;
 }
 #backlight {
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    padding-left: 15px;
     color: @rosewater;
 }
 #wireplumber {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    padding-left: 15px;
     color: @mauve;
 }
 #battery {
     color: @text;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    padding-right: 15px;
 }
 #clock {
     color: @subtext0;
@@ -141,8 +138,10 @@ tooltip label {
     margin-left: 10px;
 }
 #network {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
     color: @teal;
-    padding-right: 15px;
+    padding-right: 20px;
 }
 #bluetooth {
     color: @blue;
