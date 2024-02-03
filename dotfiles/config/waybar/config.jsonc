@@ -1,5 +1,6 @@
 {
     "height": 36,
+    "exclusive": true,
     "margin-top": 10,
     "margin-left": 10,
     "margin-bottom": 0,
@@ -8,19 +9,24 @@
     "layer": "top",
     "modules-left": [
         "cpu",
+        "custom/separator#line",
         "memory",
+        "custom/separator#line",
         "disk",
-        "custom/updates",
-        "wlr/taskbar"
+        "custom/updates"
     ],
     "modules-center": [
         "hyprland/workspaces"
     ],
     "modules-right": [
         "backlight",
+        "custom/separator#line",
         "wireplumber",
+        "custom/separator#line",
         "battery",
-        "clock"
+        "clock",
+        "custom/separator#line",
+        "group/power"
     ],
     "tray": {
         "icon-size": 25,
@@ -141,5 +147,62 @@
         "rewrite": {
             "Firefox Web Browser": "Firefox"
         }
-    }
+    },
+    "custom/separator#dot-line": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/separator#line": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/separator#dot": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    },
+
+    // POWER MENU ENTRIES AND GROUP
+    "group/power": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/poweroff",
+            "custom/lock",
+            "custom/logout",
+            "custom/reboot",
+        ],
+        "drawer": {
+
+        }
+    },
+    "custom/lock": {
+        "format": "󰌾{}",
+        "exec": "echo ; echo 󰷛  Screen lock",
+        "interval" : 86400, // once every day
+        "tooltip": true,
+        "on-click": "swaylock",
+    },
+    "custom/poweroff": {
+        "format": "{}",
+        "exec": "echo ; echo  Shutdown",
+        "interval" : 86400, // once every day
+        "tooltip": true,
+        "on-click": "systemctl poweroff",
+    },
+    "custom/logout": {
+        "format": "󰗼{}",
+        "exec": "echo ; echo 󰗼 Logout",
+        "interval" : 86400, // once every day
+        "tooltip": true,
+        "on-click": "hyprctl dispatch exit 0",
+    },
+    "custom/reboot": {
+        "format": "",
+        "exec": "echo ; echo  Reboot",
+        "interval" : 86400, // once every day
+        "tooltip": true,
+        "on-click": "systemctl reboot",
+    },
 }

@@ -21,6 +21,10 @@ tooltip label {
     color: @text;
 }
 
+#custom-separator {
+    color: @surface2;
+    background: @surface0;
+}
 
 /* LEFT */
 #cpu,
@@ -98,6 +102,11 @@ tooltip label {
 #backlight,
 #wireplumber,
 #battery,
+#group-power,
+#custom-lock,
+#custom-poweroff,
+#custom-logout,
+#custom-reboot,
 #clock {
     background-color: @surface0;
     padding-left: 10px;
@@ -122,11 +131,25 @@ tooltip label {
     color: @subtext0;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    padding-right: 15px;
     padding-left: 15px;
     margin-left: 10px;
+}
+
+#custom-reboot {
+    color: @peach;
+}
+#custom-logout {
+    color: @yellow;
+}
+#custom-lock {
+    color: @mauve;
+}
+
+#custom-poweroff {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding-right: 20px;
+    color: @maroon;
 }
 
 
