@@ -31,6 +31,7 @@ tooltip label {
 #memory,
 #disk,
 #taskbar,
+#temperature,
 #custom-updates {
     padding-left: 10px;
     padding-right: 10px;
@@ -40,7 +41,10 @@ tooltip label {
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
     padding-left: 15px;
-    color: @maroon;
+    color: @yellow;
+}
+#temperature {
+    color: @red;
 }
 #memory {
     color: @pink;
@@ -102,6 +106,8 @@ tooltip label {
 #backlight,
 #wireplumber,
 #battery,
+#network,
+#bluetooth,
 #group-power,
 #custom-lock,
 #custom-poweroff,
@@ -133,6 +139,13 @@ tooltip label {
     border-bottom-left-radius: 1rem;
     padding-left: 15px;
     margin-left: 10px;
+}
+#network {
+    color: @teal;
+    padding-right: 15px;
+}
+#bluetooth {
+    color: @blue;
 }
 
 #custom-reboot {
