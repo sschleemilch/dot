@@ -7,27 +7,21 @@
 if [ ! -f /etc/arch-release ]; then
     exit 0
 fi
-
 # Calculate updates for each service
 AUR=$(paru -Qua | wc -l)
 OFFICIAL=$(checkupdates | wc -l)
 
-# Case/switch for each service updates
-case $1 in
-    aur) echo " $AUR";;
-    official) echo " $OFFICIAL";;
-esac
-
-# If the parameter is "update", update all services
 if [ "$1" = "update" ]; then
-    alacritty --title Update -e paru -Sua
+    alacritty --title Update -e paru
 fi
 
-# If there aren't any parameters, return the total number of updates
 if [ "$1" = "" ]; then
-    # Calculate total number of updates
     COUNT=$((OFFICIAL+AUR))
-    echo " $COUNT"
+    CLASS="warning"
+    if [ "$COUNT" = "0" ]; then
+        CLASS="ok"
+    fi
+    echo "{\"text\": \" $COUNT\", \"tooltip\": \"OFFICIAL: $OFFICIAL, AUR: $AUR\", \"class\": \"$CLASS\"}"
     exit 0
 fi
 

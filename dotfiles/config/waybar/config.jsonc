@@ -79,7 +79,7 @@
         "on-click": "activate",
         {%@@ if profile == "baptop" @@%}
         "persistent-workspaces": {
-            "*": 8
+            "*": 5
         },
         {%@@ endif @@%}
         "format-icons": {
@@ -101,7 +101,9 @@
         "format": "{}",
         "exec": "~/.config/waybar/scripts/updates",
         "interval": 3600,
-        "tooltip": false
+        "signal": 8,
+        "return-type": "json",
+        "on-click": "~/.config/waybar/scripts/updates update; pkill -SIGRTMIN+8 waybar"
     },
     "cpu": {
         "interval": 5,

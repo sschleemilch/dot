@@ -2,7 +2,6 @@
 
 * {
     font-family: "FiraCode Nerd Font";
-    /* font-weight: bold; */
     font-size: 16px;
 }
 
@@ -20,6 +19,7 @@ tooltip {
 tooltip label {
     color: @text;
 }
+
 
 #custom-separator {
     color: @surface2;
@@ -64,6 +64,9 @@ tooltip label {
     padding-left: 15px;
     margin-left: 10px;
     color: @yellow;
+}
+#custom-updates.ok {
+    color: @green;
 }
 #taskbar {
     border-top-left-radius: 1rem;
