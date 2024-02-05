@@ -186,5 +186,4 @@ tooltip label {
 #battery.full,
 #battery.plugged {
     color: @green;
-    background-color: transparent;
 }
