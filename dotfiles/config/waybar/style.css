@@ -6,90 +6,116 @@
 }
 
 window#waybar {
-    background-color: transparent;
+    background-color: @base;
+    border: 2px solid @surface1;
+    border-radius: 0.75em;
+    transition-property: background-color;
+    transition-duration: 0.5s;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
 }
+
 tooltip {
-    background: @base;
-    border: 1px solid @surface1;
+  background: @base;
+  border: 1px solid @surface1;
 }
+
 tooltip label {
-    color: @text;
+  color: white;
 }
 
+label:focus {
+  background-color: #000000;
+}
 
+/* ALL MODULES */
+#cpu,
+#temperature,
+#memory,
+#disk,
+#custom-updates,
+#wireplumber,
+#backlight,
+#bluetooth,
+#battery,
+#network,
+#workspaces,
+#custom-lock,
+#custom-poweroff,
+#custom-logout,
+#custom-reboot,
 #custom-separator {
+    border-top: 2px solid @surface1;
+    border-bottom: 2px solid @surface1;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     color: @surface2;
     background: @surface0;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+/* BORDERED MODULES ON THE LEFT */
+#cpu,
+#custom-updates,
+#workspaces,
+#wireplumber {
+    border-top-left-radius: 0.75em;
+    border-bottom-left-radius: 0.75em;
+    border-left: 2px solid @surface1;
+    padding-left: 1em;
+}
+
+/* BORDERED MODULES ON THE RIGHT */
+#disk,
+#custom-updates,
+#workspaces,
+#custom-poweroff {
+    border-top-right-radius: 0.75em;
+    border-bottom-right-radius: 0.75em;
+    border-right: 2px solid @surface1;
+    padding-right: 1em;
+}
+
+#workspaces {
+    padding: 0;
+}
+
+#custom-archlogo {
+  font-size: 1.75em;
+  padding-right: 0.75em;
+  padding-left: 0.5em;
+  color: @blue;
 }
 
 /* LEFT */
-#cpu,
-#memory,
-#disk,
-#taskbar,
-#temperature,
-#custom-updates {
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: @surface0;
-}
 #cpu {
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    padding-left: 15px;
     color: @yellow;
 }
 #temperature {
-    color: @red;
+    color: @peach;
+}
+#temperature.critical {
+    color: @surface0;
+    background: @red;
 }
 #memory {
     color: @pink;
 }
 #disk {
     color: @sapphire;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    padding-right: 15px
 }
 #custom-updates {
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-left: 10px;
     color: @yellow;
+    margin-left: 1em;
 }
 #custom-updates.ok {
     color: @green;
 }
-#taskbar {
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-left: 10px;
-}
-#taskbar button {
-    color: @overlay0;
-    box-shadow: inset 0 -3px transparent;
-    transition: all 0.25s cubic-bezier(.55,-0.68,.48,1.68);
-}
 
 /* MIDDLE */
-#workspaces {
-    background-color: @surface0;
-    border-radius: 1rem;
-    padding-left: 10px;
-    padding-right: 10px;
-}
 #workspaces button {
     color: @overlay0;
     box-shadow: inset 0 -3px transparent;
@@ -106,28 +132,10 @@ tooltip label {
 }
 
 /* RIGHT */
-#backlight,
-#wireplumber,
-#battery,
-#network,
-#bluetooth,
-#group-power,
-#custom-lock,
-#custom-poweroff,
-#custom-logout,
-#custom-reboot,
-#clock {
-    background-color: @surface0;
-    padding-left: 10px;
-    padding-right: 10px;
-}
 #backlight {
     color: @rosewater;
 }
 #wireplumber {
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    padding-left: 15px;
     color: @mauve;
 }
 #battery {
@@ -135,21 +143,15 @@ tooltip label {
 }
 #clock {
     color: @subtext0;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
+    padding-right: 20px;
     padding-left: 15px;
-    margin-left: 10px;
 }
 #network {
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
     color: @teal;
-    padding-right: 20px;
 }
 #bluetooth {
     color: @blue;
 }
-
 #custom-reboot {
     color: @peach;
 }
@@ -159,29 +161,20 @@ tooltip label {
 #custom-lock {
     color: @mauve;
 }
-
 #custom-poweroff {
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    padding-right: 20px;
     color: @maroon;
 }
-
-
 #battery.warning:not(.charging) {
     color: @surface0;
     background-color: @yellow;
 }
-
 #battery.critical:not(.charging) {
     color: @surface0;
     background-color: @red;
 }
-
 #battery.discharging {
     color: @yellow;
 }
-
 #battery.charging,
 #battery.full,
 #battery.plugged {

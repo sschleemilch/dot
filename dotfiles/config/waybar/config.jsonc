@@ -1,8 +1,5 @@
 {
     "height": 36,
-    {%@@ if profile == "barchtop" @@%}
-    "output": "DP-1",
-    {%@@ endif @@%}
     "exclusive": true,
     "margin-top": 10,
     "margin-left": 10,
@@ -11,11 +8,10 @@
     "spacing": 0,
     "layer": "top",
     "modules-left": [
+        "custom/archlogo",
         "cpu",
         "temperature#cpu",
-        "custom/separator#line",
         "memory",
-        "custom/separator#line",
         "disk",
         "custom/updates"
     ],
@@ -24,21 +20,13 @@
     ],
     "modules-right": [
         "wireplumber",
-        "custom/separator#line",
         "backlight",
-        {%@@ if profile == "baptop" @@%}
-        "custom/separator#line",
-        {%@@ endif @@%}
         "bluetooth",
-        "custom/separator#line",
         "battery",
-        {%@@ if profile == "baptop" @@%}
-        "custom/separator#line",
-        {%@@ endif @@%}
         "network",
-        "clock",
         "custom/separator#line",
-        "group/power"
+        "group/power",
+        "clock",
     ],
     "tray": {
         "icon-size": 25,
@@ -70,18 +58,16 @@
         ]
     },
     "clock": {
-        "format": "󰥔 {:%H:%M}",
-        "tooltip": true,
-        "tooltip-format": "{: %A, %B %e %Y}"
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%H:%M, %a %d}",
+        "format-alt": "{:%Y-%m-%d}"
     },
     "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
-        {%@@ if profile == "baptop" @@%}
         "persistent-workspaces": {
             "*": 5
         },
-        {%@@ endif @@%}
         "format-icons": {
             "urgent": "",
             "active": "",
@@ -90,11 +76,10 @@
     },
     "backlight": {
         "device": "amdgpu_bl1",
-        "format": "{icon} {percent}%",
+        "format": "{icon}{percent}%",
         "format-icons": [" ", " ", " ", "󰃝 ", "󰃞 ", "󰃟 ", "󰃠 "],
         "on-scroll-up": "brightnessctl set 1%+",
         "on-scroll-down": "brightnessctl set 1%-",
-        "min-length": 6,
         "tooltip": false
     },
     "custom/updates": {
@@ -151,8 +136,9 @@
     "temperature#cpu": {
         "interval": 10,
         "tooltip": false,
+        "critical-threshold": 80,
         "format": " {temperatureC}°C",
-        "hwmon-path": "/sys/class/hwmon/hwmon{{@@ hwmon @@}}/temp1_input"
+        "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input"
     },
 
     "group/network": {
@@ -164,7 +150,7 @@
         "drawer": {}
     },
     "network": {
-        "interface": "{{@@ wifi @@}}",
+        "interface": "wlp1s0",
         "format": "{ifname}",
         "format-wifi": "{icon}",
         "format-ethernet": "󰌘",
@@ -260,4 +246,9 @@
         "tooltip": true,
         "on-click": "systemctl reboot",
     },
+    "custom/archlogo": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    }
 }
