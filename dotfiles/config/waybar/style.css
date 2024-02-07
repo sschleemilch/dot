@@ -7,8 +7,7 @@
 
 window#waybar {
     background-color: @base;
-    border: 2px solid @surface1;
-    border-radius: 0.75em;
+    border-bottom: 2px solid @surface1;
     transition-property: background-color;
     transition-duration: 0.5s;
 }
@@ -62,8 +61,6 @@ label:focus {
 #custom-updates,
 #workspaces,
 #wireplumber {
-    border-top-left-radius: 0.75em;
-    border-bottom-left-radius: 0.75em;
     border-left: 2px solid @surface1;
     padding-left: 1em;
 }
@@ -73,8 +70,6 @@ label:focus {
 #custom-updates,
 #workspaces,
 #custom-poweroff {
-    border-top-right-radius: 0.75em;
-    border-bottom-right-radius: 0.75em;
     border-right: 2px solid @surface1;
     padding-right: 1em;
 }
