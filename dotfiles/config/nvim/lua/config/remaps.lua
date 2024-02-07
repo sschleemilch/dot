@@ -7,13 +7,6 @@ local function map(mode, lhs, rhs, desc, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
--- Disable arrows movement
-map("", "<Up>", "<Nop>")
-map("", "<Down>", "<Nop>")
-map("", "<Left>", "<Nop>")
-map("", "<Right>", "<Nop>")
-
-
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -22,6 +15,22 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
+-- Disable arrows movement
+map("", "<Up>", "<Nop>")
+map("", "<Down>", "<Nop>")
+map("", "<Left>", "<Nop>")
+map("", "<Right>", "<Nop>")
+
+map("n", "n", "nzz") -- Auto recenter after n
+map("n", "N", "Nzz") -- Auto recenter after N
+
+-- Move Lines
+map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- windows
 map("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
