@@ -17,9 +17,9 @@ return {
 			},
 		},
 		opts = {
-            window = {
-                position = "float"
-            },
+			window = {
+				position = "float",
+			},
 			event_handlers = {
 				{
 					event = "file_opened",
@@ -53,7 +53,7 @@ return {
 			on_open = function(win)
 				vim.api.nvim_win_set_config(win, { zindex = 100 })
 			end,
-            render = "compact",
+			render = "compact",
 		},
 	},
 

@@ -2,9 +2,9 @@
 vim.g.mapleader = " "
 
 local function map(mode, lhs, rhs, desc, opts)
-    opts = opts or { silent = true }
-    opts.desc = desc
-    vim.keymap.set(mode, lhs, rhs, opts)
+	opts = opts or { silent = true }
+	opts.desc = desc
+	vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 map("v", "J", ":m '>+1<CR>gv=gv")
