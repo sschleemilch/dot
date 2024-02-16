@@ -12,21 +12,13 @@ return {
 		keys = {
 			{
 				"-",
-				"<cmd>Neotree toggle<cr>",
+				"<cmd>Neotree position=float toggle<cr>",
 				desc = "Open parent directory",
 			},
 		},
 		opts = {
 			window = {
 				position = "float",
-			},
-			event_handlers = {
-				{
-					event = "file_opened",
-					handler = function(file_path)
-						require("neo-tree.command").execute({ action = "close" })
-					end,
-				},
 			},
 		},
 	},
@@ -53,6 +45,7 @@ return {
 			on_open = function(win)
 				vim.api.nvim_win_set_config(win, { zindex = 100 })
 			end,
+            background_colour = "#24273a",
 			render = "compact",
 		},
 	},
