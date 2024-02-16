@@ -73,6 +73,7 @@ return {
 			{ "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Find files" },
 			{ "<C-g>", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
 			{ "<C-b>", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
+			{ "<leader>fs", "<cmd>Telescope treesitter<cr>", desc = "Treesitter" },
 			-- find
 			{ "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
 			{
