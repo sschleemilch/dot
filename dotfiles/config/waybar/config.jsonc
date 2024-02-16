@@ -5,6 +5,9 @@
     "margin-left": 0,
     "margin-bottom": 0,
     "margin-right": 0,
+{%@@ if profile == "barchtop" @@%}
+    "output": "DP-1",
+{%@@ endif @@%}
     "spacing": 0,
     "layer": "top",
     "modules-left": [
@@ -138,7 +141,7 @@
         "tooltip": false,
         "critical-threshold": 80,
         "format": " {temperatureC}°C",
-        "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input"
+        "hwmon-path": "/sys/class/hwmon/hwmon{{@@ hwmon @@}}/temp1_input"
     },
 
     "group/network": {
@@ -150,7 +153,7 @@
         "drawer": {}
     },
     "network": {
-        "interface": "wlp1s0",
+        "interface": "{{@@ wifi @@}}",
         "format": "{ifname}",
         "format-wifi": "{icon}",
         "format-ethernet": "󰌘",
