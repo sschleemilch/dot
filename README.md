@@ -1,4 +1,17 @@
-# DOTFILES
+<h3 align="center">
+ <img src="https://avatars.githubusercontent.com/u/12069137?v=4" width="100" alt="Logo"/><br/>
+ Dotfiles for <a href="https://github.com/sschleemilch">sschleemilch</a>
+</h3>
+
+<p align="center">
+ <a href="https://github.com/khaneliman/dotfiles/commits"><img src="https://img.shields.io/github/last-commit/sschleemilch/dot?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
+ <a href="https://github.com/khaneliman/dotfiles/contributors"><img src="https://img.shields.io/github/contributors/sschleemilch/dot?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
+</p>
+
+[![Linux](https://img.shields.io/badge/Linux-cad3f5?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/sschleemilch/dot/blob/main)
+[![Hyprland](https://img.shields.io/badge/Hyprland-cad3f5?style=for-the-badge&logo=wayland&logoColor=black)](https://hyprland.org/)
+[![Neovim](https://img.shields.io/badge/Neovim-cad3f5?style=for-the-badge&logo=vim&logoColor=black)](https://neovim.io/)
+[![tmux](https://img.shields.io/badge/tmux-cad3f5?style=for-the-badge&logo=vim&logoColor=black)](https://github.com/tmux/tmux/wiki)
 
 My dotfiles handled by [dotdrop](https://github.com/deadc0de6/dotdrop).
 Colorschemes are [Catppuccin Macchiato](https://github.com/catppuccin/catppuccin)
