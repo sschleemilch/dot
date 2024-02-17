@@ -12,6 +12,7 @@
 [![Hyprland](https://img.shields.io/badge/Hyprland-cad3f5?style=for-the-badge&logo=wayland&logoColor=black)](https://hyprland.org/)
 [![Neovim](https://img.shields.io/badge/Neovim-cad3f5?style=for-the-badge&logo=vim&logoColor=black)](https://neovim.io/)
 [![tmux](https://img.shields.io/badge/tmux-cad3f5?style=for-the-badge&logo=vim&logoColor=black)](https://github.com/tmux/tmux/wiki)
+[![Alacritty](https://img.shields.io/badge/Alacritty-cad3f5?style=for-the-badge&logo=alacritty&logoColor=black)](https://github.com/alacritty/alacritty)
 
 My dotfiles handled by [dotdrop](https://github.com/deadc0de6/dotdrop).
 Colorschemes are [Catppuccin Macchiato](https://github.com/catppuccin/catppuccin)
