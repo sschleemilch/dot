@@ -103,11 +103,8 @@ return {
 			{ "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
 		},
 		opts = function()
-			local actions = require("telescope.actions")
 			return {
 				defaults = {
-					prompt_prefix = " ",
-					selection_caret = " ",
 					-- open files in the first window that is an actual file.
 					-- use the current window if no other window is available.
 					get_selection_window = function()
@@ -121,20 +118,52 @@ return {
 						end
 						return 0
 					end,
+					vimgrep_arguments = {
+						"rg",
+						"-L",
+						"--color=never",
+						"--no-heading",
+						"--with-filename",
+						"--line-number",
+						"--column",
+						"--smart-case",
+					},
+					prompt_prefix = "   ",
+					selection_caret = "  ",
+					entry_prefix = "  ",
+					initial_mode = "insert",
+					selection_strategy = "reset",
+					sorting_strategy = "ascending",
+					layout_strategy = "horizontal",
+					layout_config = {
+						horizontal = {
+							prompt_position = "top",
+							preview_width = 0.55,
+							results_width = 0.8,
+						},
+						vertical = {
+							mirror = false,
+						},
+						width = 0.87,
+						height = 0.80,
+						preview_cutoff = 120,
+					},
+					file_sorter = require("telescope.sorters").get_fuzzy_file,
+					file_ignore_patterns = { "node_modules" },
+					generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+					path_display = { "truncate" },
+					winblend = 0,
+					border = {},
+					borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+					color_devicons = true,
+					set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+					file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+					grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+					qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+					-- Developer configurations: Not meant for general override
+					buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 					mappings = {
-						i = {
-							-- ["<c-t>"] = open_with_trouble,
-							-- ["<a-t>"] = open_selected_with_trouble,
-							-- ["<a-i>"] = find_files_no_ignore,
-							-- ["<a-h>"] = find_files_with_hidden,
-							["<C-Down>"] = actions.cycle_history_next,
-							["<C-Up>"] = actions.cycle_history_prev,
-							["<C-f>"] = actions.preview_scrolling_down,
-							["<C-b>"] = actions.preview_scrolling_up,
-						},
-						n = {
-							["q"] = actions.close,
-						},
+						n = { ["q"] = require("telescope.actions").close },
 					},
 				},
 			}
