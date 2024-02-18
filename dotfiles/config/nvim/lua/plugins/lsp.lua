@@ -65,7 +65,6 @@ return {
 					"lua_ls",
 					"ansiblels",
 					"bashls",
-					"bzl",
 					"cssls",
 					"html",
 					"dockerls",

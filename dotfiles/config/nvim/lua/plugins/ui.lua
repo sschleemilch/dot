@@ -1,27 +1,39 @@
 return {
-	-- File Browser
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		event = "VimEnter",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim",
-		},
-		keys = {
-			{
-				"-",
-				"<cmd>Neotree position=float toggle<cr>",
-				desc = "Open parent directory",
-			},
-		},
-		opts = {
-			window = {
-				position = "float",
-			},
-		},
-	},
+    -- browser
+    {
+        "stevearc/oil.nvim",
+        opts = {
+            columns = {
+                "icon",
+            },
+            use_default_keymaps = false,
+            keymaps = {
+                ["g?"] = "actions.show_help",
+                ["<CR>"] = "actions.select",
+                ["<C-p>"] = "actions.preview",
+                ["<C-c>"] = "actions.close",
+                ["q"] = "actions.close",
+                ["-"] = "actions.parent",
+                ["_"] = "actions.open_cwd",
+                ["`"] = "actions.cd",
+                ["~"] = "actions.tcd",
+                ["gs"] = "actions.change_sort",
+                ["gx"] = "actions.open_external",
+                ["g."] = "actions.toggle_hidden",
+                ["g\\"] = "actions.toggle_trash",
+            },
+            view_options = {
+                show_hidden = true,
+            },
+        },
+        keys = {
+            {
+                "-",
+                "<cmd>Oil<cr>",
+                desc = "Open parent directory"
+            }
+        }
+    },
 	-- Better `vim.notify()`
 	{
 		"rcarriga/nvim-notify",
@@ -86,7 +98,7 @@ return {
 			extensions = {
 				"lazy",
 				"mason",
-				"neo-tree",
+				"oil",
 			},
 			options = {
 				theme = "catppuccin",
@@ -138,7 +150,6 @@ return {
 					"lazy",
 					"mason",
 					"notify",
-					"neo-tree",
 				},
 			},
 		},
@@ -163,7 +174,6 @@ return {
 					"lazy",
 					"mason",
 					"notify",
-					"neo-tree",
 				},
 				callback = function()
 					vim.b.miniindentscope_disable = true
@@ -252,7 +262,7 @@ return {
                     -- stylua: ignore
                     center = {
                         { action = "Telescope find_files", desc = " Find file", icon = " ", key = "f" },
-                        { action = "Neotree", desc = " Browse files", icon = " ", key = "b" },
+                        { action = require("oil").open, desc = " Browse files", icon = " ", key = "b" },
                         { action = "Telescope oldfiles", desc = " Recent files", icon = " ", key = "r" },
                         { action = "Telescope live_grep", desc = " Find text", icon = " ", key = "g" },
                         { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
