@@ -70,6 +70,8 @@ return {
 					"dockerls",
 					"marksman",
 					"pylsp",
+					"jsonls",
+					"yamlls",
 				},
 				handlers = {
 					lsp_zero.default_setup,
