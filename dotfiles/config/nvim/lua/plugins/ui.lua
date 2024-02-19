@@ -150,6 +150,7 @@ return {
 					"lazy",
 					"mason",
 					"notify",
+                    "oil_preview"
 				},
 			},
 		},
@@ -174,7 +175,8 @@ return {
 					"lazy",
 					"mason",
 					"notify",
-                    "fzf"
+                    "fzf",
+                    "oil_preview"
 				},
 				callback = function()
 					vim.b.miniindentscope_disable = true

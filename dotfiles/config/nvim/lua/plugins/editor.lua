@@ -25,7 +25,7 @@ return {
 			{ "<leader>fl", "<cmd>FzfLua blines<cr>", desc = "Find line" },
 			{ "<leader>fg", "<cmd>FzfLua git_files<cr>", desc = "Find git file" },
 			{ "<leader>fr", "<cmd>FzfLua registers<cr>", desc = "Find register" },
-			{ "<leader>fs", "<cmd>FzfLua lsp_finder<cr>", desc = "Find lsp" },
+			{ "<leader>fs", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Find lsp" },
 			{ "<leader>fh", "<cmd>FzfLua help_tags<cr>", desc = "Find help" },
 			{ "<leader>fm", "<cmd>FzfLua marks<cr>", desc = "Find mark" },
 			{ "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Find keymap" },
