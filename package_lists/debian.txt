@@ -1,0 +1,8 @@
+zsh
+bat
+exa
+ripgrep
+fd-find
+tmux
+npm
+nvim

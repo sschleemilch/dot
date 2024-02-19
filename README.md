@@ -26,15 +26,10 @@ Colorschemes are [Catppuccin Macchiato](https://github.com/catppuccin/catppuccin
 
 ## Requirements
 
-- zsh
-- [exa](https://itsfoss.com/exa/)
-- [bat](https://github.com/sharkdp/bat)
-- btop
+Check [package_lists](./package_lists/) for a list of packages for different distributions.
+
 - Nerd Font [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip)
-- (OPTIONAL) [fzf](https://github.com/junegunn/fzf)
-- tmux
 - [tpm](https://github.com/tmux-plugins/tpm)
-- nvim (neovim)
 
 ### `wsl`
 

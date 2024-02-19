@@ -42,10 +42,9 @@ dotfiles:
     src: config/waybar
     dst: ~/.config/waybar
 profiles:
-  generic:
+  wsl:
     dotfiles:
     - f_tmux.conf
-    - d_alacritty
     - d_nvim
     - d_bat
     - d_btop
