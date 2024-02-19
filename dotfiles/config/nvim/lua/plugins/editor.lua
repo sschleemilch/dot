@@ -15,31 +15,29 @@ return {
 		build = "./install --all",
 	},
 	{
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		keys = {
+			{ "<C-p>", "<cmd>FzfLua files<cr>", desc = "Find files" },
+			{ "<C-g>", "<cmd>FzfLua live_grep<cr>", desc = "Live grep" },
+			{ "<C-b>", "<cmd>FzfLua buffers<cr>", desc = "Find buffer" },
+			{ "<leader>fo", "<cmd>FzfLua oldfiles<cr>", desc = "Find oldfiles" },
+			{ "<leader>fl", "<cmd>FzfLua blines<cr>", desc = "Find line" },
+			{ "<leader>fg", "<cmd>FzfLua git_files<cr>", desc = "Find git file" },
+			{ "<leader>fr", "<cmd>FzfLua registers<cr>", desc = "Find register" },
+			{ "<leader>fs", "<cmd>FzfLua lsp_finder<cr>", desc = "Find lsp" },
+			{ "<leader>fh", "<cmd>FzfLua help_tags<cr>", desc = "Find help" },
+			{ "<leader>fm", "<cmd>FzfLua marks<cr>", desc = "Find mark" },
+			{ "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Find keymap" },
+		},
+	},
+	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
-			-- basic telescope configuration
-			local conf = require("telescope.config").values
-			local function toggle_telescope(harpoon_files)
-				local file_paths = {}
-				for _, item in ipairs(harpoon_files.items) do
-					table.insert(file_paths, item.value)
-				end
-
-				require("telescope.pickers")
-					.new({}, {
-						prompt_title = "Harpoon",
-						finder = require("telescope.finders").new_table({
-							results = file_paths,
-						}),
-						previewer = conf.file_previewer({}),
-						sorter = conf.generic_sorter({}),
-					})
-					:find()
-			end
 			vim.keymap.set("n", "<C-e>", function()
-				toggle_telescope(require("harpoon"):list())
+				require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
 			end, { desc = "Open harpoon window" })
 			vim.keymap.set("n", "<leader>ha", function()
 				require("harpoon"):list():append()
@@ -54,121 +52,6 @@ return {
 			end, { desc = "Clear Harpoon list" })
 		end,
 	},
-	-- Fuzzy finder.
-	-- The default key bindings to find files will use Telescope's
-	-- `find_files` or `git_files` depending on whether the
-	-- directory is a git repo.
-	{
-		"nvim-telescope/telescope.nvim",
-		cmd = "Telescope",
-		version = false, -- telescope did only one release, so use HEAD for now
-		dependencies = {
-			{
-				"nvim-telescope/telescope-fzf-native.nvim",
-				build = "make",
-				enabled = vim.fn.executable("make") == 1,
-			},
-		},
-		keys = {
-			{ "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Find files" },
-			{ "<C-g>", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
-			{ "<C-b>", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
-			{ "<leader>fs", "<cmd>Telescope treesitter<cr>", desc = "Treesitter" },
-			-- find
-			{ "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
-			{
-				"<leader>fg",
-				"<cmd>Telescope git_files<cr>",
-				desc = "Find Files (git-files)",
-			},
-			{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-			-- git
-			{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
-			{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
-			-- search
-			{ '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
-			{ "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
-			{ "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-			{ "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
-			{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
-			{
-				"<leader>sH",
-				"<cmd>Telescope highlights<cr>",
-				desc = "Search Highlight Groups",
-			},
-			{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
-			{ "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
-			{ "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
-			{ "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
-			{ "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
-		},
-		opts = function()
-			return {
-				defaults = {
-					-- open files in the first window that is an actual file.
-					-- use the current window if no other window is available.
-					get_selection_window = function()
-						local wins = vim.api.nvim_list_wins()
-						table.insert(wins, 1, vim.api.nvim_get_current_win())
-						for _, win in ipairs(wins) do
-							local buf = vim.api.nvim_win_get_buf(win)
-							if vim.bo[buf].buftype == "" then
-								return win
-							end
-						end
-						return 0
-					end,
-					vimgrep_arguments = {
-						"rg",
-						"-L",
-						"--color=never",
-						"--no-heading",
-						"--with-filename",
-						"--line-number",
-						"--column",
-						"--smart-case",
-					},
-					prompt_prefix = "   ",
-					selection_caret = "  ",
-					entry_prefix = "  ",
-					initial_mode = "insert",
-					selection_strategy = "reset",
-					sorting_strategy = "ascending",
-					layout_strategy = "horizontal",
-					layout_config = {
-						horizontal = {
-							prompt_position = "top",
-							preview_width = 0.55,
-							results_width = 0.8,
-						},
-						vertical = {
-							mirror = false,
-						},
-						width = 0.87,
-						height = 0.80,
-						preview_cutoff = 120,
-					},
-					file_sorter = require("telescope.sorters").get_fuzzy_file,
-					file_ignore_patterns = { "node_modules" },
-					generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-					path_display = { "truncate" },
-					winblend = 0,
-					border = {},
-					borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-					color_devicons = true,
-					set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-					file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-					grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-					qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-					-- Developer configurations: Not meant for general override
-					buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
-					mappings = {
-						n = { ["q"] = require("telescope.actions").close },
-					},
-				},
-			}
-		end,
-	},
 	-- Flash enhances the built-in search functionality by showing labels
 	-- at the end of each match, letting you quickly jump to a specific
 	-- location.
@@ -176,7 +59,13 @@ return {
 		"folke/flash.nvim",
 		event = "VeryLazy",
 		vscode = true,
-		opts = {},
+		opts = {
+			modes = {
+				search = {
+					enabled = false,
+				},
+			},
+		},
 		-- stylua: ignore
 		keys = {
 			{ "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },

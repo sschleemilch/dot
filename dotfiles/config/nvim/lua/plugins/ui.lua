@@ -174,6 +174,7 @@ return {
 					"lazy",
 					"mason",
 					"notify",
+                    "fzf"
 				},
 				callback = function()
 					vim.b.miniindentscope_disable = true
@@ -261,10 +262,10 @@ return {
 					header = vim.split(logo, "\n"),
                     -- stylua: ignore
                     center = {
-                        { action = "Telescope find_files", desc = " Find file", icon = " ", key = "f" },
+                        { action = require"fzf-lua".files, desc = " Find file", icon = " ", key = "f" },
                         { action = require("oil").open, desc = " Browse files", icon = " ", key = "b" },
-                        { action = "Telescope oldfiles", desc = " Recent files", icon = " ", key = "r" },
-                        { action = "Telescope live_grep", desc = " Find text", icon = " ", key = "g" },
+                        { action = require"fzf-lua".oldfiles, desc = " Recent files", icon = " ", key = "r" },
+                        { action = require"fzf-lua".live_grep, desc = " Find text", icon = " ", key = "g" },
                         { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
                         { action = "Mason", desc = " Mason", icon = " ", key = "m" },
                         { action = "qa", desc = " Quit", icon = " ", key = "q" },

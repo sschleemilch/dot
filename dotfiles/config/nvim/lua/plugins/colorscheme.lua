@@ -32,7 +32,6 @@ return {
 						information = { "undercurl" },
 					},
 				},
-				telescope = true,
 				treesitter = true,
 			},
 		},
