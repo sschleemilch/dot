@@ -36,6 +36,9 @@ return {
 		opts = {
 			oldfiles = {
 				cwd_only = true,
+            },
+			winopts = {
+				border = "single",
 			},
 		},
 	},
