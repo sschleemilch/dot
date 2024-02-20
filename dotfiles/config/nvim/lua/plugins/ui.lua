@@ -1,39 +1,39 @@
 return {
-    -- browser
-    {
-        "stevearc/oil.nvim",
-        opts = {
-            columns = {
-                "icon",
-            },
-            use_default_keymaps = false,
-            keymaps = {
-                ["g?"] = "actions.show_help",
-                ["<CR>"] = "actions.select",
-                ["<C-p>"] = "actions.preview",
-                ["<C-c>"] = "actions.close",
-                ["q"] = "actions.close",
-                ["-"] = "actions.parent",
-                ["_"] = "actions.open_cwd",
-                ["`"] = "actions.cd",
-                ["~"] = "actions.tcd",
-                ["gs"] = "actions.change_sort",
-                ["gx"] = "actions.open_external",
-                ["g."] = "actions.toggle_hidden",
-                ["g\\"] = "actions.toggle_trash",
-            },
-            view_options = {
-                show_hidden = true,
-            },
-        },
-        keys = {
-            {
-                "-",
-                "<cmd>Oil<cr>",
-                desc = "Open parent directory"
-            }
-        }
-    },
+	-- browser
+	{
+		"stevearc/oil.nvim",
+		opts = {
+			columns = {
+				"icon",
+			},
+			use_default_keymaps = false,
+			keymaps = {
+				["g?"] = "actions.show_help",
+				["<CR>"] = "actions.select",
+				["<C-p>"] = "actions.preview",
+				["<C-c>"] = "actions.close",
+				["q"] = "actions.close",
+				["-"] = "actions.parent",
+				["_"] = "actions.open_cwd",
+				["`"] = "actions.cd",
+				["~"] = "actions.tcd",
+				["gs"] = "actions.change_sort",
+				["gx"] = "actions.open_external",
+				["g."] = "actions.toggle_hidden",
+				["g\\"] = "actions.toggle_trash",
+			},
+			view_options = {
+				show_hidden = true,
+			},
+		},
+		keys = {
+			{
+				"-",
+				"<cmd>Oil<cr>",
+				desc = "Open parent directory",
+			},
+		},
+	},
 	-- Better `vim.notify()`
 	{
 		"rcarriga/nvim-notify",
@@ -57,7 +57,7 @@ return {
 			on_open = function(win)
 				vim.api.nvim_win_set_config(win, { zindex = 100 })
 			end,
-            background_colour = "#24273a",
+			background_colour = "#24273a",
 			render = "compact",
 		},
 	},
@@ -150,7 +150,7 @@ return {
 					"lazy",
 					"mason",
 					"notify",
-                    "oil_preview"
+					"oil_preview",
 				},
 			},
 		},
@@ -175,8 +175,8 @@ return {
 					"lazy",
 					"mason",
 					"notify",
-                    "fzf",
-                    "oil_preview"
+					"fzf",
+					"oil_preview",
 				},
 				callback = function()
 					vim.b.miniindentscope_disable = true
@@ -216,7 +216,7 @@ return {
 				},
 			},
 			presets = {
-				bottom_search = true,
+				bottom_search = false,
 				command_palette = true,
 				long_message_to_split = true,
 				inc_rename = true,
