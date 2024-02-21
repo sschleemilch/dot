@@ -2,8 +2,9 @@ return {
 	-- catppuccin
 	{
 		"catppuccin/nvim",
-		lazy = true,
+		lazy = false,
 		name = "catppuccin",
+		priority = 1000,
 		init = function()
 			vim.cmd.colorscheme("catppuccin")
 		end,
@@ -18,11 +19,22 @@ return {
 				notify = true,
 				treesitter_context = true,
 				which_key = true,
-				fidget = true,
-				indent_blankline = { enabled = true },
+				flash = true,
+				indent_blankline = {
+					enabled = true,
+					scope_color = "",
+					color_indent_levels = false,
+				},
 				cmp = true,
 				dashboard = true,
-				illuminate = true,
+				gitsigns = true,
+				illuminate = {
+					enabled = true,
+				},
+				mini = {
+					enabled = true,
+					indentscope_color = "overlay0",
+				},
 				native_lsp = {
 					enabled = true,
 					underlines = {
