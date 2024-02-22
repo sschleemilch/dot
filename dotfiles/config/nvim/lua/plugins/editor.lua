@@ -30,6 +30,11 @@ return {
 			{ "<leader>fm", "<cmd>FzfLua marks<cr>", desc = "Find mark" },
 			{ "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Find keymap" },
 		},
+		opts = {
+			oldfiles = {
+				cwd_only = true,
+			},
+		},
 	},
 	{
 		"ThePrimeagen/harpoon",
