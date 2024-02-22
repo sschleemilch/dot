@@ -15,6 +15,9 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
+-- save file
+map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+
 -- Disable arrows movement
 map("", "<Up>", "<Nop>")
 map("", "<Down>", "<Nop>")
