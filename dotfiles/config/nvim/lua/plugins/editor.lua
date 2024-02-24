@@ -40,25 +40,11 @@ return {
 		},
 	},
 	{
-		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			vim.keymap.set("n", "<C-e>", function()
-				require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
-			end, { desc = "Open harpoon window" })
-			vim.keymap.set("n", "<leader>ha", function()
-				require("harpoon"):list():append()
-			end, { desc = "Add file to Harpoon" })
-
-			vim.keymap.set("n", "<leader>hr", function()
-				require("harpoon"):list():remove()
-			end, { desc = "Remove file from Harpoon" })
-
-			vim.keymap.set("n", "<leader>hc", function()
-				require("harpoon"):list():clear()
-			end, { desc = "Clear Harpoon list" })
-		end,
+		"otavioschwanck/arrow.nvim",
+		opts = {
+			show_icons = true,
+			leader_key = ";",
+		},
 	},
 	-- Flash enhances the built-in search functionality by showing labels
 	-- at the end of each match, letting you quickly jump to a specific
