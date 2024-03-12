@@ -45,6 +45,7 @@ label:focus {
 #custom-poweroff,
 #custom-logout,
 #custom-reboot,
+#custom-fan,
 #custom-separator {
     border-top: 2px solid @surface1;
     border-bottom: 2px solid @surface1;
@@ -66,7 +67,11 @@ label:focus {
 }
 
 /* BORDERED MODULES ON THE RIGHT */
+{%@@ if profile == "barchtop" @@%}
 #disk,
+{%@@ elif profile == "baptop" @@%}
+#custom-fan,
+{%@@ endif @@%}
 #custom-updates,
 #workspaces,
 #custom-poweroff {
@@ -108,6 +113,12 @@ label:focus {
 }
 #custom-updates.ok {
     color: @green;
+}
+#custom-fan.on {
+    color: @peach;
+}
+#custom-fan.off {
+    color: @subtext0;
 }
 
 /* MIDDLE */
