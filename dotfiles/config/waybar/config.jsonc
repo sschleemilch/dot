@@ -16,6 +16,9 @@
         "temperature#cpu",
         "memory",
         "disk",
+    {%@@ if profile == "baptop" @@%}
+        "custom/fan",
+    {%@@ endif @@%}
         "custom/updates"
     ],
     "modules-center": [
@@ -92,6 +95,12 @@
         "signal": 8,
         "return-type": "json",
         "on-click": "~/.config/waybar/scripts/updates update; pkill -SIGRTMIN+8 waybar"
+    },
+    "custom/fan": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/fan",
+        "interval": 5,
+        "return-type": "json"
     },
     "cpu": {
         "interval": 5,
