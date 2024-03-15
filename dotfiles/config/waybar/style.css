@@ -46,6 +46,7 @@ label:focus {
 #custom-logout,
 #custom-reboot,
 #custom-fan,
+#custom-weather,
 #custom-separator {
     border-top: 2px solid @surface1;
     border-bottom: 2px solid @surface1;
@@ -60,6 +61,7 @@ label:focus {
 /* BORDERED MODULES ON THE LEFT */
 #cpu,
 #custom-updates,
+#custom-weather,
 #workspaces,
 #wireplumber {
     border-left: 2px solid @surface1;
@@ -73,6 +75,7 @@ label:focus {
 #custom-fan,
 {%@@ endif @@%}
 #custom-updates,
+#custom-weather,
 #workspaces,
 #custom-poweroff {
     border-right: 2px solid @surface1;
@@ -119,6 +122,10 @@ label:focus {
 }
 #custom-fan.off {
     color: @subtext0;
+}
+#custom-weather {
+    color: @blue;
+    margin-left: 1em;
 }
 
 /* MIDDLE */

@@ -19,7 +19,8 @@
     {%@@ if profile == "baptop" @@%}
         "custom/fan",
     {%@@ endif @@%}
-        "custom/updates"
+        "custom/updates",
+        "custom/weather"
     ],
     "modules-center": [
         "hyprland/workspaces"
@@ -32,7 +33,7 @@
         "network",
         "custom/separator#line",
         "group/power",
-        "clock",
+        "clock"
     ],
     "tray": {
         "icon-size": 25,
@@ -101,6 +102,12 @@
         "exec": "~/.config/waybar/scripts/fan",
         "interval": 5,
         "return-type": "json"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "interval": 1800,
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/weather/weather"
     },
     "cpu": {
         "interval": 5,
