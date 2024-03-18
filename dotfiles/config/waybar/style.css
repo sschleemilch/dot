@@ -35,6 +35,7 @@ label:focus {
 #memory,
 #disk,
 #custom-updates,
+#systemd-failed-units,
 #wireplumber,
 #backlight,
 #bluetooth,
@@ -60,6 +61,7 @@ label:focus {
 
 /* BORDERED MODULES ON THE LEFT */
 #cpu,
+#systemd-failed-units,
 #custom-updates,
 #custom-weather,
 #workspaces,
@@ -76,6 +78,7 @@ label:focus {
 {%@@ endif @@%}
 #custom-updates,
 #custom-weather,
+#systemd-failed-units,
 #workspaces,
 #custom-poweroff {
     border-right: 2px solid @surface1;
@@ -95,7 +98,7 @@ label:focus {
 
 /* LEFT */
 #cpu {
-    color: @yellow;
+    color: @subtext0;
 }
 #temperature {
     color: @peach;
@@ -127,6 +130,13 @@ label:focus {
     color: @blue;
     margin-left: 1em;
 }
+#systemd-failed-units.degraded {
+    color: @red;
+}
+#systemd-failed-units {
+    margin-left: 1em;
+}
+
 
 /* MIDDLE */
 #workspaces button {
