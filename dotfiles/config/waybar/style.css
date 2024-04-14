@@ -41,7 +41,6 @@ label:focus {
 #bluetooth,
 #battery,
 #network,
-#workspaces,
 #custom-lock,
 #custom-poweroff,
 #custom-logout,
@@ -49,8 +48,8 @@ label:focus {
 #custom-fan,
 #custom-weather,
 #custom-separator {
-    border-top: 2px solid @surface1;
-    border-bottom: 2px solid @surface1;
+    /* border-top: 2px solid @surface1; */
+    /* border-bottom: 2px solid @surface1; */
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     color: @surface2;
@@ -64,10 +63,11 @@ label:focus {
 #systemd-failed-units,
 #custom-updates,
 #custom-weather,
-#workspaces,
 #wireplumber {
-    border-left: 2px solid @surface1;
+    /* border-left: 2px solid @surface1; */
     padding-left: 1em;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
 }
 
 /* BORDERED MODULES ON THE RIGHT */
@@ -79,10 +79,11 @@ label:focus {
 #custom-updates,
 #custom-weather,
 #systemd-failed-units,
-#workspaces,
 #custom-poweroff {
-    border-right: 2px solid @surface1;
-    padding-right: 1em;
+    /* border-right: 2px solid @surface1; */
+    padding-right: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
 
 #workspaces {
@@ -186,6 +187,7 @@ label:focus {
 }
 #custom-poweroff {
     color: @maroon;
+    padding-right: 1.5rem;
 }
 #battery.warning:not(.charging) {
     color: @surface0;

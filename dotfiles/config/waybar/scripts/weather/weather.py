@@ -4,7 +4,8 @@ from typing import Any, Dict
 
 import requests
 
-STATION_ID = "03379"
+# Choose Station ID from: https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/daily/kl/recent/KL_Tageswerte_Beschreibung_Stationen.txt
+STATION_ID = "03379"  # Munich
 API_URL = "https://dwd.api.proxy.bund.dev/v30/stationOverviewExtended"
 
 

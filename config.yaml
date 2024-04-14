@@ -32,15 +32,16 @@ dotfiles:
   d_swaylock:
     src: config/swaylock
     dst: ~/.config/swaylock
-  d_swaync:
-    src: config/swaync
-    dst: ~/.config/swaync
   d_tofi:
     src: config/tofi
     dst: ~/.config/tofi
   d_waybar:
     src: config/waybar
     dst: ~/.config/waybar
+  d_dunst:
+    src: config/dunst
+    dst: ~/.config/dunst
+
 profiles:
   wsl:
     dotfiles:

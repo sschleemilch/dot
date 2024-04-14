@@ -1,5 +1,5 @@
 {
-    "height": 36,
+    "height": 50,
     "exclusive": true,
     "margin-top": 0,
     "margin-left": 0,
@@ -73,13 +73,10 @@
     "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
-        "persistent-workspaces": {
-            "*": 5
-        },
         "format-icons": {
             "urgent": "",
             "active": "",
-            "default": ""
+            "default": "",
         }
     },
     "backlight": {
