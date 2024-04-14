@@ -84,14 +84,14 @@ return {
 			},
 			options = {
 				theme = "catppuccin",
-				section_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
 				component_separators = "",
 				globalstatus = true,
 				disabled_filetypes = { statusline = { "dashboard" } },
 			},
 			sections = {
 				lualine_a = {
-					{ "mode", icon = "", separator = { left = "" }, right_padding = 2 },
+					{ "mode", icon = "", separator = { left = "" }, right_padding = 2 },
 				},
 				lualine_b = {
 					{ "branch", icon = "" },
@@ -110,7 +110,7 @@ return {
 					},
 				},
 				lualine_z = {
-					{ "location", separator = { right = "" }, left_padding = 2 },
+					{ "location", separator = { right = "" }, left_padding = 2 },
 				},
 			},
 		},
