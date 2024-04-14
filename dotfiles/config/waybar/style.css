@@ -7,7 +7,6 @@
 
 window#waybar {
     background-color: @base;
-    border-bottom: 2px solid @surface1;
     transition-property: background-color;
     transition-duration: 0.5s;
 }
@@ -48,8 +47,6 @@ label:focus {
 #custom-fan,
 #custom-weather,
 #custom-separator {
-    /* border-top: 2px solid @surface1; */
-    /* border-bottom: 2px solid @surface1; */
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     color: @surface2;
@@ -64,7 +61,6 @@ label:focus {
 #custom-updates,
 #custom-weather,
 #wireplumber {
-    /* border-left: 2px solid @surface1; */
     padding-left: 1em;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
@@ -80,7 +76,6 @@ label:focus {
 #custom-weather,
 #systemd-failed-units,
 #custom-poweroff {
-    /* border-right: 2px solid @surface1; */
     padding-right: 1rem;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
