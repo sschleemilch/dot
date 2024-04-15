@@ -38,9 +38,9 @@ dotfiles:
   d_waybar:
     src: config/waybar
     dst: ~/.config/waybar
-  d_dunst:
-    src: config/dunst
-    dst: ~/.config/dunst
+  d_swaync:
+    src: config/swaync
+    dst: ~/.config/swaync
 
 profiles:
   wsl:
