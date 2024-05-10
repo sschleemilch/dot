@@ -20,6 +20,7 @@ return {
 				python = { "isort", "black" },
 				-- Use a sub-list to run only the first available formatter
 				bzl = { "buildifier" },
+                go = {"goimports", "gofmt"},
 				sh = { "shfmt" },
 				["javascript"] = { "prettier" },
 				["javascriptreact"] = { "prettier" },
