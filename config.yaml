@@ -8,12 +8,24 @@ config:
   link_on_import: nolink
   longkey: false
 dotfiles:
-  f_tmux.conf:
-    src: tmux.conf
-    dst: ~/.tmux.conf
+  d_tmux:
+    src: config/tmux
+    dst: ~/.config/tmux
   d_alacritty:
     src: config/alacritty
     dst: ~/.config/alacritty
+  d_git:
+    src: config/git
+    dst: ~/.config/git
+  d_k9s:
+    src: config/k9s
+    dst: ~/.config/k9s
+  d_lazygit:
+    src: config/lazygit
+    dst: ~/.config/lazygit
+  d_oh_my_posh:
+    src: config/oh-my-posh
+    dst: ~/.config/oh-my-posh
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
@@ -45,7 +57,11 @@ dotfiles:
 profiles:
   wsl:
     dotfiles:
-    - f_tmux.conf
+    - d_tmux
+    - d_git
+    - d_k9s
+    - d_lazygit
+    - d_oh_my_posh
     - d_nvim
     - d_bat
     - d_btop
