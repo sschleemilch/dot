@@ -41,6 +41,67 @@ return {
 				}, {
 					{ name = "buffer" },
 				}),
+				formatting = {
+					format = function(entry, item)
+						local icons = {
+							Array = " ",
+							Boolean = "󰨙 ",
+							Class = " ",
+							Codeium = "󰘦 ",
+							Color = " ",
+							Control = " ",
+							Collapsed = " ",
+							Constant = "󰏿 ",
+							Constructor = " ",
+							Copilot = " ",
+							Enum = " ",
+							EnumMember = " ",
+							Event = " ",
+							Field = " ",
+							File = " ",
+							Folder = " ",
+							Function = "󰊕 ",
+							Interface = " ",
+							Key = " ",
+							Keyword = " ",
+							Method = "󰊕 ",
+							Module = " ",
+							Namespace = "󰦮 ",
+							Null = " ",
+							Number = "󰎠 ",
+							Object = " ",
+							Operator = " ",
+							Package = " ",
+							Property = " ",
+							Reference = " ",
+							Snippet = " ",
+							String = " ",
+							Struct = "󰆼 ",
+							TabNine = "󰏚 ",
+							Text = " ",
+							TypeParameter = " ",
+							Unit = " ",
+							Value = " ",
+							Variable = "󰀫 ",
+						}
+						if icons[item.kind] then
+							item.kind = icons[item.kind] .. item.kind
+						end
+
+						local widths = {
+							abbr = vim.g.cmp_widths and vim.g.cmp_widths.abbr or 40,
+							menu = vim.g.cmp_widths and vim.g.cmp_widths.menu or 30,
+						}
+
+						for key, width in pairs(widths) do
+							if item[key] and vim.fn.strdisplaywidth(item[key]) > width then
+								item[key] = vim.fn.strcharpart(item[key], 0, width - 1) .. "…"
+							end
+						end
+
+						return item
+					end,
+				},
 				experimental = {
 					ghost_text = {
 						hl_group = "CmpGhostText",
@@ -59,57 +120,54 @@ return {
 
 	-- snippets
 	{
-		"L3MON4D3/LuaSnip",
-		build = (not jit.os:find("Windows"))
-				and "echo 'NOTE: jsregexp is optional, so not a big deal if it fails to build'; make install_jsregexp"
-			or nil,
+		"nvim-cmp",
 		dependencies = {
 			{
-				"rafamadriz/friendly-snippets",
-				config = function()
-					require("luasnip.loaders.from_vscode").lazy_load()
+				"garymjr/nvim-snippets",
+				opts = {
+					friendly_snippets = true,
+				},
+				dependencies = { "rafamadriz/friendly-snippets" },
+			},
+		},
+		keys = {
+			{
+				"<Tab>",
+				function()
+					return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<Tab>"
 				end,
+				expr = true,
+				silent = true,
+				mode = { "i", "s" },
 			},
 			{
-				"nvim-cmp",
-				dependencies = {
-					"saadparwaiz1/cmp_luasnip",
-				},
-				opts = function(_, opts)
-					opts.snippet = {
-						expand = function(args)
-							require("luasnip").lsp_expand(args.body)
-						end,
-					}
-					table.insert(opts.sources, { name = "luasnip" })
+				"<S-Tab>",
+				function()
+					return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<S-Tab>"
 				end,
+				expr = true,
+				silent = true,
+				mode = { "i", "s" },
 			},
 		},
-		opts = {
-			history = true,
-			delete_check_events = "TextChanged",
-		},
-        -- stylua: ignore
-        keys = {
-            {
-                "<tab>",
-                function()
-                    return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-                end,
-                expr = true,
-                silent = true,
-                mode = "i",
-            },
-            { "<tab>",   function() require("luasnip").jump(1) end,  mode = "s" },
-            { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
-        },
 	},
 
 	-- auto pairs
 	{
 		"echasnovski/mini.pairs",
 		event = "VeryLazy",
-		opts = {},
+		opts = {
+			modes = { insert = true, command = true, terminal = false },
+			-- skip autopair when next character is one of these
+			skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
+			-- skip autopair when the cursor is inside these treesitter nodes
+			skip_ts = { "string" },
+			-- skip autopair when next character is closing pair
+			-- and there are more closing pairs than opening pairs
+			skip_unbalanced = true,
+			-- better deal with markdown code blocks
+			markdown = true,
+		},
 		keys = {
 			{
 				"<leader>up",
@@ -166,25 +224,41 @@ return {
 
 	-- comments
 	{
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		lazy = true,
-		opts = {
-			enable_autocmd = false,
-		},
-	},
-	{
-		"echasnovski/mini.comment",
+		"folke/ts-comments.nvim",
 		event = "VeryLazy",
-		opts = {
-			options = {
-				custom_commentstring = function()
-					return require("ts_context_commentstring.internal").calculate_commentstring()
-						or vim.bo.commentstring
-				end,
-			},
-		},
+		opts = {},
 	},
 
+	{
+		"folke/todo-comments.nvim",
+		cmd = { "TodoTrouble", "TodoTelescope" },
+		event = "VeryLazy",
+		opts = {},
+		keys = {
+			{
+				"]t",
+				function()
+					require("todo-comments").jump_next()
+				end,
+				desc = "Next Todo Comment",
+			},
+			{
+				"[t",
+				function()
+					require("todo-comments").jump_prev()
+				end,
+				desc = "Previous Todo Comment",
+			},
+			{ "<leader>xt", "<cmd>Trouble todo toggle<cr>", desc = "Todo (Trouble)" },
+			{
+				"<leader>xT",
+				"<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,FIXME}}<cr>",
+				desc = "Todo/Fix/Fixme (Trouble)",
+			},
+			{ "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+			{ "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+		},
+	},
 	-- Better text-objects
 	{
 		"echasnovski/mini.ai",

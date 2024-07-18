@@ -17,10 +17,9 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform will run multiple formatters sequentially
-				python = { "isort", "black" },
+				python = { "ruff_format" },
 				-- Use a sub-list to run only the first available formatter
 				bzl = { "buildifier" },
-                go = {"goimports", "gofmt"},
 				sh = { "shfmt" },
 				["javascript"] = { "prettier" },
 				["javascriptreact"] = { "prettier" },
@@ -38,6 +37,8 @@ return {
 				["markdown.mdx"] = { "prettier" },
 				["graphql"] = { "prettier" },
 				["handlebars"] = { "prettier" },
+                go = { "goimports", "gofmt"},
+                nix = { "nixpkgs_fmt"}
 			},
 			format_on_save = {
 				-- These options will be passed to conform.format()

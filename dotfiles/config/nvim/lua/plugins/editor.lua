@@ -1,49 +1,126 @@
 return {
 	-- search/replace in multiple files
 	{
-		"nvim-pack/nvim-spectre",
-		build = false,
-		cmd = "Spectre",
-		opts = { open_cmd = "noswapfile vnew" },
-        -- stylua: ignore
-        keys = {
-            { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
-        },
-	},
-	{
-		"junegunn/fzf",
-		build = "./install --all",
-	},
-	{
-		"ibhagwan/fzf-lua",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		"MagicDuck/grug-far.nvim",
+		config = function()
+			require("grug-far").setup({})
+		end,
 		keys = {
-			{ "<C-p>", "<cmd>FzfLua files<cr>", desc = "Find files" },
-			{ "<C-g>", "<cmd>FzfLua live_grep<cr>", desc = "Live grep" },
-			{ "<C-b>", "<cmd>FzfLua buffers<cr>", desc = "Find buffer" },
-			{ "<leader>fo", "<cmd>FzfLua oldfiles<cr>", desc = "Find oldfiles" },
-			{ "<leader>fc", "<cmd>FzfLua command_history<cr>", desc = "Find old command" },
-			{ "<leader>fd", "<cmd>FzfLua diagnostics_document<cr>", desc = "Find diagnostics" },
-			{ "<leader>fb", "<cmd>FzfLua builtins<cr>", desc = "Find builtins" },
-			{ "<leader>fl", "<cmd>FzfLua blines<cr>", desc = "Find line" },
-			{ "<leader>fg", "<cmd>FzfLua git_files<cr>", desc = "Find git file" },
-			{ "<leader>fr", "<cmd>FzfLua registers<cr>", desc = "Find register" },
-			{ "<leader>fs", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Find lsp" },
-			{ "<leader>fh", "<cmd>FzfLua help_tags<cr>", desc = "Find help" },
-			{ "<leader>fm", "<cmd>FzfLua marks<cr>", desc = "Find mark" },
-			{ "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Find keymap" },
-		},
-		opts = {
-			oldfiles = {
-				cwd_only = true,
+			{
+				"<leader>sr",
+				"<cmd>GrugFar<cr>",
+				desc = "Replace in files (Grug-far)",
 			},
 		},
 	},
 	{
-		"otavioschwanck/arrow.nvim",
-		opts = {
-			show_icons = true,
-			leader_key = ";",
+		"nvim-telescope/telescope.nvim",
+		cmd = "Telescope",
+		version = false, -- telescope did only one release, so use HEAD for now
+		dependencies = {
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "make",
+			},
+		},
+		config = function(_, opts)
+			local tl = require("telescope")
+			tl.setup(opts)
+			tl.load_extension("fzf")
+		end,
+		opts = function()
+			local actions = require("telescope.actions")
+
+			local function find_command()
+				if 1 == vim.fn.executable("rg") then
+					return { "rg", "--files", "--color", "never", "-g", "!.git" }
+				elseif 1 == vim.fn.executable("fd") then
+					return { "fd", "--type", "f", "--color", "never", "-E", ".git" }
+				elseif 1 == vim.fn.executable("fdfind") then
+					return { "fdfind", "--type", "f", "--color", "never", "-E", ".git" }
+				elseif 1 == vim.fn.executable("find") and vim.fn.has("win32") == 0 then
+					return { "find", ".", "-type", "f" }
+				elseif 1 == vim.fn.executable("where") then
+					return { "where", "/r", ".", "*" }
+				end
+			end
+
+			return {
+				defaults = {
+					prompt_prefix = "   ",
+					selection_caret = " ",
+					-- open files in the first window that is an actual file.
+					-- use the current window if no other window is available.
+					get_selection_window = function()
+						local wins = vim.api.nvim_list_wins()
+						table.insert(wins, 1, vim.api.nvim_get_current_win())
+						for _, win in ipairs(wins) do
+							local buf = vim.api.nvim_win_get_buf(win)
+							if vim.bo[buf].buftype == "" then
+								return win
+							end
+						end
+						return 0
+					end,
+					mappings = {
+						n = {
+							["q"] = actions.close,
+						},
+					},
+				},
+				pickers = {
+					find_files = {
+						find_command = find_command,
+						hidden = true,
+					},
+				},
+			}
+		end,
+		keys = {
+			{
+				"<leader>,",
+				"<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
+				desc = "Switch Buffer",
+			},
+			{ "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
+			{ "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+			{ "<leader><space>", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+			-- find
+			{ "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
+			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+			{ "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Find Git Files" },
+			{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+			-- search
+			{ '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
+			{ "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
+			{ "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+			{ "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
+			{ "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
+			{ "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics" },
+			{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
+			{ "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
+			{ "<leader>sj", "<cmd>Telescope jumplist<cr>", desc = "Jumplist" },
+			{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
+			{ "<leader>sl", "<cmd>Telescope loclist<cr>", desc = "Location List" },
+			{ "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+			{ "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
+			{ "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
+			{ "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
+			{ "<leader>sq", "<cmd>Telescope quickfix<cr>", desc = "Quickfix List" },
+			{
+				"<leader>ss",
+				function()
+					require("telescope.builtin").lsp_document_symbols()
+				end,
+				desc = "Goto Symbol",
+			},
+			{
+				"<leader>sS",
+				function()
+					require("telescope.builtin").lsp_dynamic_workspace_symbols()
+				end,
+				desc = "Goto Symbol (Workspace)",
+			},
 		},
 	},
 	-- Flash enhances the built-in search functionality by showing labels
@@ -76,31 +153,19 @@ return {
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		opts = {
-			plugins = { spelling = true },
-			defaults = {
-				mode = { "n", "v" },
-				["g"] = { name = "+goto" },
-				["gs"] = { name = "+surround" },
-				["]"] = { name = "+next" },
-				["["] = { name = "+prev" },
-				["<leader><tab>"] = { name = "+tabs" },
-				["<leader>b"] = { name = "+buffer" },
-				["<leader>c"] = { name = "+code" },
-				["<leader>f"] = { name = "+file/find" },
-				["<leader>g"] = { name = "+git" },
-				["<leader>gh"] = { name = "+hunks" },
-				["<leader>q"] = { name = "+quit/session" },
-				["<leader>s"] = { name = "+search" },
-				["<leader>u"] = { name = "+ui" },
-				["<leader>w"] = { name = "+windows" },
-				["<leader>x"] = { name = "+diagnostics/quickfix" },
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
 			},
 		},
-		config = function(_, opts)
-			local wk = require("which-key")
-			wk.setup(opts)
-			wk.register(opts.defaults)
-		end,
 	},
 	-- git signs highlights text that has changed since the list
 	-- git commit, and also lets you interactively stage & unstage
@@ -116,12 +181,34 @@ return {
 				changedelete = { text = "▎" },
 				untracked = { text = "▎" },
 			},
+			signs_staged = {
+				add = { text = "▎" },
+				change = { text = "▎" },
+				delete = { text = "" },
+				topdelete = { text = "" },
+				changedelete = { text = "▎" },
+			},
 			on_attach = function(buffer)
 				local gs = package.loaded.gitsigns
 
 				local function map(mode, l, r, desc)
 					vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
 				end
+
+				map("n", "]h", function()
+					if vim.wo.diff then
+						vim.cmd.normal({ "]c", bang = true })
+					else
+						gs.nav_hunk("next")
+					end
+				end, "Next Hunk")
+				map("n", "[h", function()
+					if vim.wo.diff then
+						vim.cmd.normal({ "[c", bang = true })
+					else
+						gs.nav_hunk("prev")
+					end
+				end, "Prev Hunk")
 
                 -- stylua: ignore start
                 map("n", "]h", gs.next_hunk, "Next Hunk")
@@ -206,4 +293,49 @@ return {
 		},
 	},
 	{ "christoomey/vim-tmux-navigator" },
+	{
+		"folke/trouble.nvim",
+		cmd = { "Trouble" },
+		opts = {},
+		keys = {
+			{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
+			{ "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
+			{ "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", desc = "Symbols (Trouble)" },
+			{
+				"<leader>cS",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "LSP references/definitions/... (Trouble)",
+			},
+			{ "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
+			{ "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
+			{
+				"[q",
+				function()
+					if require("trouble").is_open() then
+						require("trouble").prev({ skip_groups = true, jump = true })
+					else
+						local ok, err = pcall(vim.cmd.cprev)
+						if not ok then
+							vim.notify(err, vim.log.levels.ERROR)
+						end
+					end
+				end,
+				desc = "Previous Trouble/Quickfix Item",
+			},
+			{
+				"]q",
+				function()
+					if require("trouble").is_open() then
+						require("trouble").next({ skip_groups = true, jump = true })
+					else
+						local ok, err = pcall(vim.cmd.cnext)
+						if not ok then
+							vim.notify(err, vim.log.levels.ERROR)
+						end
+					end
+				end,
+				desc = "Next Trouble/Quickfix Item",
+			},
+		},
+	},
 }

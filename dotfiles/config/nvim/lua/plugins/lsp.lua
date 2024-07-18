@@ -28,11 +28,10 @@ return {
 			ensure_installed = {
 				"stylua",
 				"shfmt",
-				"black",
 				"prettier",
-				"isort",
 				"buildifier",
-				-- "flake8",
+				"ruff",
+				"nixpkgs-fmt",
 			},
 		},
 		config = function(_, opts)
@@ -72,12 +71,31 @@ return {
 					"pylsp",
 					"jsonls",
 					"yamlls",
+					"clangd",
+					"cmake",
+					"gopls",
+					"tsserver",
+					"autotools_ls",
+					"rust_analyzer",
+					"bzl",
+					"taplo",
 				},
 				handlers = {
 					lsp_zero.default_setup,
 				},
 			}
 			require("mason-lspconfig").setup(opts)
+			require("lspconfig").pylsp.setup({
+				settings = {
+					pylsp = {
+						plugins = {
+							pycodestyle = {
+								maxLineLength = 120,
+							},
+						},
+					},
+				},
+			})
 		end,
 	},
 }

@@ -1,9 +1,9 @@
 -- set leader key to space
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 local function map(mode, lhs, rhs, desc, opts)
 	opts = opts or { silent = true }
-	opts.desc = desc
 	vim.keymap.set(mode, lhs, rhs, opts)
 end
 

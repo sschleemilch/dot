@@ -1,36 +1,82 @@
 return {
 	-- browser
 	{
-		"stevearc/oil.nvim",
-		opts = {
-			columns = {
-				"icon",
-			},
-			use_default_keymaps = false,
-			keymaps = {
-				["g?"] = "actions.show_help",
-				["<CR>"] = "actions.select",
-				["<C-p>"] = "actions.preview",
-				["<C-c>"] = "actions.close",
-				["q"] = "actions.close",
-				["-"] = "actions.parent",
-				["_"] = "actions.open_cwd",
-				["`"] = "actions.cd",
-				["~"] = "actions.tcd",
-				["gs"] = "actions.change_sort",
-				["gx"] = "actions.open_external",
-				["g."] = "actions.toggle_hidden",
-				["g\\"] = "actions.toggle_trash",
-			},
-			view_options = {
-				show_hidden = true,
-			},
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
 		},
 		keys = {
 			{
 				"-",
-				"<cmd>Oil<cr>",
+				"<cmd>Neotree position=current reveal toggle<cr>",
 				desc = "Open parent directory",
+			},
+		},
+		opts = {
+			sources = { "filesystem", "buffers", "git_status" },
+			enable_diagnostics = false,
+			filesystem = {
+				bind_to_cwd = false,
+				follow_current_file = { enabled = true },
+				use_libuv_filter_watcher = true,
+			},
+			window = {
+				mappings = {
+					["l"] = "open",
+					["h"] = "close_node",
+					["<space>"] = "none",
+					["Y"] = {
+						function(state)
+							local node = state.tree:get_node()
+							local path = node:get_id()
+							vim.fn.setreg("+", path, "c")
+						end,
+						desc = "Copy Path to Clipboard",
+					},
+				},
+			},
+			default_component_configs = {
+				indent = {
+					with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+					expander_collapsed = "",
+					expander_expanded = "",
+					expander_highlight = "NeoTreeExpander",
+				},
+				git_status = {
+					symbols = {
+						unstaged = "󰄱",
+						staged = "󰱒",
+					},
+				},
+			},
+		},
+	},
+	{
+		"akinsho/bufferline.nvim",
+		event = "VeryLazy",
+		keys = {
+			{ "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle Pin" },
+			{ "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete Non-Pinned Buffers" },
+			{ "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "Delete Other Buffers" },
+			{ "<leader>br", "<Cmd>BufferLineCloseRight<CR>", desc = "Delete Buffers to the Right" },
+			{ "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", desc = "Delete Buffers to the Left" },
+			{ "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
+			{ "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+			{ "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
+			{ "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+			{ "[B", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer prev" },
+			{ "]B", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer next" },
+		},
+		opts = {
+			options = {
+				always_show_bufferline = false,
+				separator_style = { "", "" },
+				indicator = {
+					style = "none",
+				},
+				show_buffer_close_icons = false,
 			},
 		},
 	},
@@ -47,6 +93,7 @@ return {
 			},
 		},
 		opts = {
+			stages = "static",
 			timeout = 3000,
 			max_height = function()
 				return math.floor(vim.o.lines * 0.75)
@@ -58,7 +105,6 @@ return {
 				vim.api.nvim_win_set_config(win, { zindex = 100 })
 			end,
 			background_colour = "#24273a",
-			render = "compact",
 		},
 	},
 
@@ -80,23 +126,21 @@ return {
 			extensions = {
 				"lazy",
 				"mason",
-				"oil",
+				"neo-tree",
 			},
 			options = {
 				theme = "catppuccin",
-				section_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
 				component_separators = "",
 				globalstatus = true,
 				disabled_filetypes = { statusline = { "dashboard" } },
 			},
 			sections = {
 				lualine_a = {
-					{ "mode", icon = "", separator = { left = "" }, right_padding = 2 },
+					{ "mode", icon = "", right_padding = 2, separator = { right = "", left = "" } },
 				},
 				lualine_b = {
 					{ "branch", icon = "" },
-					"diff",
-					"diagnostics",
 				},
 				lualine_c = {
 					{
@@ -108,9 +152,47 @@ return {
 							newfile = "",
 						},
 					},
+					{ "filetype" },
+					{
+						"diagnostics",
+						symbols = {
+							error = " ",
+							warn = " ",
+							info = " ",
+							hint = " ",
+						},
+					},
+				},
+				lualine_x = {
+					{
+						"diff",
+						symbols = {
+							added = " ",
+							modified = " ",
+							removed = " ",
+						},
+						source = function()
+							local gitsigns = vim.b.gitsigns_status_dict
+							if gitsigns then
+								return {
+									added = gitsigns.added,
+									modified = gitsigns.changed,
+									removed = gitsigns.removed,
+								}
+							end
+						end,
+					},
+				},
+				lualine_y = {
+					{ "progress" },
 				},
 				lualine_z = {
-					{ "location", separator = { right = "" }, left_padding = 2 },
+					{
+						function()
+							return " " .. os.date("%R")
+						end,
+						separator = { right = "", left = "" },
+					},
 				},
 			},
 		},
@@ -132,7 +214,9 @@ return {
 					"lazy",
 					"mason",
 					"notify",
-					"oil_preview",
+					"neo-tree",
+					"Trouble",
+					"trouble",
 				},
 			},
 		},
@@ -158,7 +242,9 @@ return {
 					"mason",
 					"notify",
 					"fzf",
-					"oil_preview",
+					"neo-tree",
+					"Trouble",
+					"trouble",
 				},
 				callback = function()
 					vim.b.miniindentscope_disable = true
@@ -167,17 +253,15 @@ return {
 		end,
 	},
 
-	-- Displays a popup with possible key bindings of the command you started typing
-	{
-		"folke/which-key.nvim",
-	},
-
 	-- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		opts = {
 			lsp = {
+				progress = {
+					enabled = false,
+				},
 				override = {
 					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 					["vim.lsp.util.stylize_markdown"] = true,
@@ -215,7 +299,17 @@ return {
 	},
 
 	-- icons
-	{ "nvim-tree/nvim-web-devicons", lazy = true },
+	{
+		"echasnovski/mini.icons",
+		lazy = true,
+		opts = {},
+		init = function()
+			package.preload["nvim-web-devicons"] = function()
+				require("mini.icons").mock_nvim_web_devicons()
+				return package.loaded["nvim-web-devicons"]
+			end
+		end,
+	},
 
 	-- ui components
 	{ "MunifTanjim/nui.nvim", lazy = true },
@@ -246,10 +340,9 @@ return {
 					header = vim.split(logo, "\n"),
                     -- stylua: ignore
                     center = {
-                        { action = require"fzf-lua".files, desc = " Find file", icon = " ", key = "f" },
-                        { action = require("oil").open, desc = " Browse files", icon = " ", key = "b" },
-                        { action = require"fzf-lua".oldfiles, desc = " Recent files", icon = " ", key = "r" },
-                        { action = require"fzf-lua".live_grep, desc = " Find text", icon = " ", key = "g" },
+                        { action = require("telescope.builtin").find_files, desc = " Find file", icon = " ", key = "f" },
+                        { action = require("telescope.builtin").oldfiles, desc = " Recent files", icon = " ", key = "r" },
+                        { action = require("telescope.builtin").live_grep, desc = " Find text", icon = " ", key = "g" },
                         { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
                         { action = "Mason", desc = " Mason", icon = " ", key = "m" },
                         { action = "qa", desc = " Quit", icon = " ", key = "q" },

@@ -17,8 +17,10 @@ return {
 				mason = true,
 				harpoon = true,
 				notify = true,
+				neotree = true,
 				treesitter_context = true,
 				which_key = true,
+				lsp_trouble = true,
 				flash = true,
 				indent_blankline = {
 					enabled = true,
