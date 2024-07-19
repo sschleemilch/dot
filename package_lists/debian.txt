@@ -1,8 +1,9 @@
 zsh
 bat
-exa
+eza
 ripgrep
 fd-find
+btop
 tmux
 npm
-nvim
+neovim
