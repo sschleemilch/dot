@@ -38,6 +38,11 @@ dotfiles:
   d_zsh:
     src: config/zsh
     dst: ~/.config/zsh
+    instignore:
+    - "*/.git/*"
+  d_fsh:
+    src: config/fsh
+    dst: ~/.config/fsh
   d_hypr:
     src: config/hypr
     dst: ~/.config/hypr
@@ -66,6 +71,7 @@ profiles:
     - d_bat
     - d_btop
     - d_zsh
+    - d_fsh
   baptop:
     dotfiles:
     - ALL
@@ -78,3 +84,9 @@ profiles:
     variables:
       wifi: wlp0s20f3
       hwmon: 4
+
+  testing:
+    dotfiles:
+    - d_zsh
+    - d_fsh
+    - d_oh_my_posh

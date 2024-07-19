@@ -1,0 +1,8 @@
+alias -- 'la'='eza -a'
+alias -- 'll'='eza -l'
+alias -- 'lla'='eza -la'
+alias -- 'ls'='eza'
+alias -- 'lt'='eza --tree'
+alias -- 'tree'='eza --tree'
+alias -- 'v'='nvim'
+alias -- 'conflicts'='git diff --name-only --diff-filter=U'
