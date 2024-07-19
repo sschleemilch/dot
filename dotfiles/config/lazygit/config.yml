@@ -1,1 +1,23 @@
-/nix/store/6d9f87112whjhzc1b045nr6qpgrla7jg-home-manager-files/.config/lazygit/config.yml
+gui:
+  authorColors:
+    '*': '#b7bdf8'
+  theme:
+    activeBorderColor:
+    - '#c6a0f6'
+    - bold
+    cherryPickedCommitBgColor:
+    - '#494d64'
+    cherryPickedCommitFgColor:
+    - '#c6a0f6'
+    defaultFgColor:
+    - '#cad3f5'
+    inactiveBorderColor:
+    - '#a5adcb'
+    optionsTextColor:
+    - '#8aadf4'
+    searchingActiveBorderColor:
+    - '#eed49f'
+    selectedLineBgColor:
+    - '#363a4f'
+    unstagedChangesColor:
+    - '#ed8796'
