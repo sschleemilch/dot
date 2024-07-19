@@ -21,3 +21,9 @@ export FZF_DEFAULT_OPTS=" \
 --marker ⇒"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 10'"
 export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree ls"
+
+path=(
+  $HOME/.local/bin(N)
+  $path
+)
+export PATH

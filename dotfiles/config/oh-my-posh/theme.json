@@ -1,1 +1,160 @@
-/nix/store/6d9f87112whjhzc1b045nr6qpgrla7jg-home-manager-files/.config/oh-my-posh/theme.json
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "final_space": true,
+  "console_title_template": "{{ .Shell }} in {{ .Folder }}",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:surface2",
+          "template": "\u250c\u2500"
+        },
+        {
+          "type": "session",
+          "style": "diamond",
+          "foreground": "p:black",
+          "background": "p:yellow",
+          "leading_diamond": "\ue0ba",
+          "trailing_diamond": "\ue0bc",
+          "template": " {{ if .SSHSession }}\ueba9 {{ .UserName }} {{ end }} "
+        },
+        {
+          "type": "path",
+          "style": "diamond",
+          "leading_diamond": "\ue0ba",
+          "trailing_diamond": "\ue0bc",
+          "foreground": "p:black",
+          "background": "p:blue",
+          "properties": {
+        },
+          "template": "{{ $segment := .Segments.Git }}{{ $icon := \"\uf1d3\" }}{{ if $segment.Dir }} {{ $icon }} <i><b>{{ $segment.RepoName }}{{ if $segment.IsWorkTree}} \ue21c{{ end }}</b></i>{{if ne $segment.RepoName .Path}} \ueaf7 {{ trimPrefix $segment.Dir .PWD }}{{ end }}{{ else }} \uea83 {{ path .Path .Location }}{{ end }}{{ if not .Writable }} \uf023{{ end }} "
+        },
+        {
+          "type": "git",
+          "style": "diamond",
+          "leading_diamond": "\ue0ba",
+          "trailing_diamond": "\ue0bc",
+          "foreground": "p:black",
+          "background": "p:green",
+          "background_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}p:orange{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:red{{ end }}",
+            "{{ if gt .Ahead 0 }}p:maroon{{ end }}",
+            "{{ if gt .Behind 0 }}p:maroon{{ end }}"
+          ],
+          "template": " {{ if .UpstreamURL }}{{ url .UpstreamIcon .UpstreamURL }} {{ end }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
+          "properties": {
+            "branch_max_length": 25,
+            "fetch_status": true,
+            "fetch_upstream_icon": false,
+            "branch_icon": " "
+          }
+        },
+        {
+          "type": "project",
+          "style": "diamond",
+          "leading_diamond": "\ue0ba",
+          "trailing_diamond": "\ue0bc",
+          "foreground": "p:black",
+          "background": "p:teal",
+          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Version }} {{.Version}}{{ end }}{{ end }} "
+        },
+        {
+          "type": "python",
+          "style": "diamond",
+          "leading_diamond": "\ue0ba",
+          "trailing_diamond": "\ue0bc",
+          "foreground": "p:black",
+          "background": "p:rosewater",
+          "template": "  {{ .Venv }} {{ .Full }} "
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:surface2",
+          "template": "\u2514"
+        },
+        {
+          "type": "status",
+          "style": "diamond",
+          "foreground": "p:black",
+          "background": "p:red",
+          "leading_diamond": "\ue0ba",
+          "trailing_diamond": "\ue0bc",
+          "template": "{{ if .Error }}\u00d7{{ .Code }}{{ end }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:yellow",
+          "template": "$([ $(jobs | wc -l | xargs) -gt 0 ] && echo '<p:surface2,transparent>\u2500</>\uf0ad ')"
+        },
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": "p:green",
+          "background": "transparent",
+          "foreground_templates": ["{{ if gt .Code 0 }}p:red{{ end }}"],
+          "template": "<p:surface2,transparent>\u2500</>\u276f",
+          "properties": {
+            "always_enabled": true
+          }
+        }
+      ]
+    }
+  ],
+  "transient_prompt": {
+    "foreground": "p:overlay1",
+    "background": "transparent",
+    "template": "\u276f "
+  },
+  "secondary_prompt": {
+    "foreground": "p:black",
+    "background": "transparent",
+    "template": "<p:yellow,transparent>\ue0ba</><,p:yellow> > </><p:yellow,transparent>\ue0b0</> "
+  },
+  "palette": {
+    "black": "p:mantle",
+    "orange": "p:peach",
+    "white": "p:subtext1",
+    "base": "#24273a",
+    "blue": "#8aadf4",
+    "crust": "#181926",
+    "flamingo": "#f0c6c6",
+    "green": "#a6da95",
+    "lavender": "#b7bdf8",
+    "mantle": "#1e2030",
+    "maroon": "#ee99a0",
+    "mauve": "#c6a0f6",
+    "overlay0": "#6e738d",
+    "overlay1": "#8087a2",
+    "overlay2": "#939ab7",
+    "peach": "#f5a97f",
+    "pink": "#f5bde6",
+    "red": "#ed8796",
+    "rosewater": "#f4dbd6",
+    "sapphire": "#7dc4e4",
+    "sky": "#91d7e3",
+    "subtext0": "#a5adcb",
+    "subtext1": "#b8c0e0",
+    "surface0": "#363a4f",
+    "surface1": "#494d64",
+    "surface2": "#5b6078",
+    "teal": "#8bd5ca",
+    "text": "#cad3f5",
+    "yellow": "#eed49f"
+  }
+}
+

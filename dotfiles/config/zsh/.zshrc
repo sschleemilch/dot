@@ -82,7 +82,7 @@ source $ZDOTDIR/completion.zsh
 # |  PLUGINS   |
 # +------------+
 source $ZPLUGSDIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-fast-theme XDG:catppuccin-macchiato
+fast-theme XDG:catppuccin-macchiato > /dev/null 2>&1
 source $ZPLUGSDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
@@ -101,6 +101,6 @@ if [ $(command -v "fzf") ]; then
     source <(fzf --zsh)
 fi
 
-if [ $(command -v "fzf") ]; then
+if [ $(command -v "oh-my-posh") ]; then
     eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.json)"
 fi

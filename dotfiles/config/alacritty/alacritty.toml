@@ -88,35 +88,19 @@ size = 14
 
 [font.bold]
 style = "Bold"
-{%@@ if profile == "barchtop" @@%}
-family = "MesloLGS NF"
-{%@@ elif profile == "baptop" @@%}
 family = "FiraCode Nerd Font"
-{%@@ endif @@%}
 
 [font.bold_italic]
 style = "Bold Italic"
-{%@@ if profile == "barchtop" @@%}
-family = "MesloLGS NF"
-{%@@ elif profile == "baptop" @@%}
 family = "FiraCode Nerd Font"
-{%@@ endif @@%}
 
 [font.italic]
 style = "Italic"
-{%@@ if profile == "barchtop" @@%}
-family = "MesloLGS NF"
-{%@@ elif profile == "baptop" @@%}
 family = "FiraCode Nerd Font"
-{%@@ endif @@%}
 
 [font.normal]
 style = "Regular"
-{%@@ if profile == "barchtop" @@%}
-family = "MesloLGS NF"
-{%@@ elif profile == "baptop" @@%}
 family = "FiraCode Nerd Font"
-{%@@ endif @@%}
 
 [font.offset]
 x = 0

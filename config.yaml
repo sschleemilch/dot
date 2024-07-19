@@ -85,8 +85,9 @@ profiles:
       wifi: wlp0s20f3
       hwmon: 4
 
-  testing:
+  desora:
     dotfiles:
     - d_zsh
     - d_fsh
     - d_oh_my_posh
+    - d_alacritty
