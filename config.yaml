@@ -10,10 +10,13 @@ config:
 actions:
   post:
     batcache: bat cache --build
+    init_tpm: source ~/.config/zsh/scripts.zsh && init_tpm
 dotfiles:
   d_tmux:
     src: config/tmux
     dst: ~/.config/tmux
+    actions:
+    - init_tpm
   d_alacritty:
     src: config/alacritty
     dst: ~/.config/alacritty
