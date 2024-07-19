@@ -11,6 +11,8 @@ setopt CORRECT              # Spelling correction
 setopt CDABLE_VARS          # Change directory to a path stored in a variable.
 setopt EXTENDED_GLOB        # Use extended globbing syntax.
 
+source $ZDOTDIR/plugins/bd.zsh
+
 # +---------+
 # | HISTORY |
 # +---------+
@@ -34,7 +36,8 @@ source $ZDOTDIR/aliases.zsh
 # +---------+
 source $ZDOTDIR/scripts.zsh
 
-source "$ZDOTDIR/plugins/fg_bg.sh"
+# Use C-Z for fg and bg
+source $ZDOTDIR/plugins/fg_bg.sh
 zle -N fg-bg
 bindkey '^Z' fg-bg
 
