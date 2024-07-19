@@ -7,6 +7,9 @@ config:
   link_dotfile_default: nolink
   link_on_import: nolink
   longkey: false
+actions:
+  post:
+    batcache: bat cache --build
 dotfiles:
   d_tmux:
     src: config/tmux
@@ -32,6 +35,8 @@ dotfiles:
   d_bat:
     src: config/bat
     dst: ~/.config/bat
+    actions:
+    - batcache
   d_btop:
     src: config/btop
     dst: ~/.config/btop
@@ -39,7 +44,10 @@ dotfiles:
     src: config/zsh
     dst: ~/.config/zsh
     instignore:
-    - "*/.git/*"
+    - "*/.git"
+    upignore:
+    - "*/.zcompdump"
+    - "*/.zhistory"
   d_fsh:
     src: config/fsh
     dst: ~/.config/fsh
@@ -72,22 +80,16 @@ profiles:
     - d_btop
     - d_zsh
     - d_fsh
-  baptop:
-    dotfiles:
-    - ALL
-    variables:
-      wifi: wlp1s0
-      hwmon: 5
-  barchtop:
-    dotfiles:
-    - ALL
-    variables:
-      wifi: wlp0s20f3
-      hwmon: 4
-
   desora:
     dotfiles:
     - d_zsh
     - d_fsh
     - d_oh_my_posh
     - d_alacritty
+    - d_git
+    - d_nvim
+    - d_bat
+    - d_tmux
+    - d_btop
+    - d_k9s
+    - d_lazygit

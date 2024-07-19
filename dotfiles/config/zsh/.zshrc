@@ -34,6 +34,10 @@ source $ZDOTDIR/aliases.zsh
 # +---------+
 source $ZDOTDIR/scripts.zsh
 
+source "$ZDOTDIR/plugins/fg_bg.sh"
+zle -N fg-bg
+bindkey '^Z' fg-bg
+
 # +-----------+
 # | VI KEYMAP |
 # +-----------+
