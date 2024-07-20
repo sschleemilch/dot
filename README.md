@@ -8,7 +8,7 @@
  <a href="https://github.com/khaneliman/dotfiles/contributors"><img src="https://img.shields.io/github/contributors/sschleemilch/dot?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
 </p>
 
-[![Linux](https://img.shields.io/badge/Linux-cad3f5?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/sschleemilch/dot/blob/main)
+[![Linux](https://img.shields.io/badge/Linux-cad3f5?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/sschleemilch/dotfiles/blob/main)
 [![Hyprland](https://img.shields.io/badge/Hyprland-cad3f5?style=for-the-badge&logo=wayland&logoColor=black)](https://hyprland.org/)
 [![Neovim](https://img.shields.io/badge/Neovim-cad3f5?style=for-the-badge&logo=vim&logoColor=black)](https://neovim.io/)
 [![tmux](https://img.shields.io/badge/tmux-cad3f5?style=for-the-badge&logo=vim&logoColor=black)](https://github.com/tmux/tmux/wiki)
