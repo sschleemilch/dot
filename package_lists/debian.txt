@@ -1,9 +1,0 @@
-zsh
-bat
-eza
-ripgrep
-fd-find
-btop
-tmux
-npm
-neovim

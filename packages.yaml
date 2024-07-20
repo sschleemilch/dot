@@ -1,0 +1,18 @@
+arch:
+  - zsh
+  - bat
+  - exa
+  - ripgrep
+  - fd
+  - tmux
+  - npm
+  - neovim
+debian:
+  - zsh
+  - bat
+  - eza
+  - ripgrep
+  - fd-find
+  - tmux
+  - npm
+  - neovim
