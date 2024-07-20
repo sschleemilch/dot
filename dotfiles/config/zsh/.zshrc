@@ -45,7 +45,6 @@ bindkey '^Z' fg-bg
 # | VI KEYMAP |
 # +-----------+
 bindkey -v
-export KEYTIMEOUT=1
 
 source $ZDOTDIR/cursor_mode.zsh
 
