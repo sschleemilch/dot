@@ -1,3 +1,3 @@
 [user]
-	email = "sebastian.schleemilch@posteo.net"
+	email = "{{@@ git_email @@}}"
 	name = "Sebastian Schleemilch"

@@ -7,16 +7,19 @@ config:
   link_dotfile_default: nolink
   link_on_import: nolink
   longkey: false
+variables:
+  git_email: sebastian.schleemilch@posteo.net
 actions:
   post:
     batcache: bat cache --build
     init_tpm: source ~/.config/zsh/scripts.zsh && init_tpm
+    link_zshenv: ln -s -f ~/.config/zsh/.zshenv ~/.zshenv
 dotfiles:
   d_tmux:
     src: config/tmux
     dst: ~/.config/tmux
     actions:
-    - init_tpm
+      - init_tpm
   d_alacritty:
     src: config/alacritty
     dst: ~/.config/alacritty
@@ -39,18 +42,20 @@ dotfiles:
     src: config/bat
     dst: ~/.config/bat
     actions:
-    - batcache
+      - batcache
   d_btop:
     src: config/btop
     dst: ~/.config/btop
   d_zsh:
     src: config/zsh
     dst: ~/.config/zsh
+    actions:
+      - link_zshenv
     instignore:
-    - "*/.git"
+      - "*/.git"
     upignore:
-    - "*/.zcompdump"
-    - "*/.zhistory"
+      - "*/.zcompdump"
+      - "*/.zhistory"
   d_fsh:
     src: config/fsh
     dst: ~/.config/fsh
@@ -71,28 +76,23 @@ dotfiles:
     dst: ~/.config/swaync
 
 profiles:
-  wsl:
+  cli:
     dotfiles:
-    - d_tmux
-    - d_git
-    - d_k9s
-    - d_lazygit
-    - d_oh_my_posh
-    - d_nvim
-    - d_bat
-    - d_btop
-    - d_zsh
-    - d_fsh
+      - d_tmux
+      - d_git
+      - d_k9s
+      - d_lazygit
+      - d_oh_my_posh
+      - d_nvim
+      - d_bat
+      - d_btop
+      - d_zsh
+      - d_fsh
+  wsl:
+    include:
+      - cli
   desora:
     dotfiles:
-    - d_zsh
-    - d_fsh
-    - d_oh_my_posh
-    - d_alacritty
-    - d_git
-    - d_nvim
-    - d_bat
-    - d_tmux
-    - d_btop
-    - d_k9s
-    - d_lazygit
+      - d_alacritty
+    include:
+      - cli
