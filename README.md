@@ -19,11 +19,11 @@ Colorschemes are [Catppuccin Macchiato](https://github.com/catppuccin/catppuccin
 
 ## Usage
 
-1. [Install](https://dotdrop.readthedocs.io/en/latest/installation/) dotdrop as a package.
 1. Clone the repository:
     ```bash
     git clone https://github.com/sschleemilch/dotfiles.git ~/.dotfiles
     ```
+1. [Install](https://dotdrop.readthedocs.io/en/latest/installation/) dotdrop as a package.
 1. Run `dotdrop` commands from within that repo or create an alias with `alias dotdrop='dotdrop --cfg=<repo>/config.yaml'`.
 1. `dotdrop install -p <PROFILE>` (check `dotdrop profiles` for available ones)
 
