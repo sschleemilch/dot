@@ -31,6 +31,12 @@ Colorschemes are [Catppuccin Macchiato](https://github.com/catppuccin/catppuccin
 
 - A Nerd Font e.g. [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip)
 
+### `d_nvim`
+
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [fd](https://github.com/sharkdp/fd)
+- [node.js](https://nodejs.org)
+
 ### `d_zsh`
 
 - [direnv](https://direnv.net/)
