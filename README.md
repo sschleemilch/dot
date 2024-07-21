@@ -24,12 +24,20 @@ Colorschemes are [Catppuccin Macchiato](https://github.com/catppuccin/catppuccin
 1. Run `dotdrop` commands from within that repo or create an alias with `alias dotdrop='dotdrop --cfg=<repo>/config.yaml'`.
 1. `dotdrop install -p <PROFILE>` (check `dotdrop profiles` for available ones)
 
-## Requirements
-
-Check [package_lists](./package_lists/) for a list of packages for different distributions.
+## Dependencies
 
 - Nerd Font [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip)
-- [tpm](https://github.com/tmux-plugins/tpm)
+
+### d_zsh
+
+- direnv
+- zoxide
+- fzf
+- oh-my-posh
+
+### d_alacritty
+
+- FiraCode Nerd Font
 
 ### `wsl`
 

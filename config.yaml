@@ -7,19 +7,21 @@ config:
   link_dotfile_default: nolink
   link_on_import: nolink
   longkey: false
+  instignore:
+    - "*/.git"
 variables:
   git_email: sebastian.schleemilch@posteo.net
 actions:
   post:
     batcache: bat cache --build
-    init_tpm: source ~/.config/zsh/scripts.zsh && init_tpm
     link_zshenv: ln -s -f ~/.config/zsh/.zshenv ~/.zshenv
 dotfiles:
   d_tmux:
     src: config/tmux
     dst: ~/.config/tmux
-    actions:
-      - init_tpm
+  d_tmux_tpm:
+    src: config/tpm
+    dst: ~/.tmux/plugins/tpm
   d_alacritty:
     src: config/alacritty
     dst: ~/.config/alacritty
@@ -51,8 +53,6 @@ dotfiles:
     dst: ~/.config/zsh
     actions:
       - link_zshenv
-    instignore:
-      - "*/.git"
     upignore:
       - "*/.zcompdump"
       - "*/.zhistory"
@@ -74,11 +74,18 @@ dotfiles:
   d_swaync:
     src: config/swaync
     dst: ~/.config/swaync
+  f_face:
+    src: config/face.png
+    dst: ~/.face
+  d_wallpaper:
+    src: config/wallpaper
+    dst: ~/wallpaper
 
 profiles:
   cli:
     dotfiles:
       - d_tmux
+      - d_tmux_tpm
       - d_git
       - d_k9s
       - d_lazygit
@@ -88,11 +95,10 @@ profiles:
       - d_btop
       - d_zsh
       - d_fsh
-  wsl:
-    include:
-      - cli
   desora:
     dotfiles:
       - d_alacritty
+      - d_wallpaper
+      - f_face
     include:
       - cli

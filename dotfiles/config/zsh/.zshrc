@@ -77,6 +77,11 @@ autoload -Uz incarg
 zle -N incarg
 bindkey -M vicmd '^a' incarg
 
+# +-----------+
+# | PROFILING |
+# +-----------+
+
+zmodload zsh/zprof
 
 # +------------+
 # | COMPLETION |
@@ -88,7 +93,6 @@ source $ZDOTDIR/completion.zsh
 # |  PLUGINS   |
 # +------------+
 source $ZPLUGSDIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-fast-theme XDG:catppuccin-macchiato > /dev/null 2>&1
 source $ZPLUGSDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
