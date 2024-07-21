@@ -76,7 +76,7 @@ dotfiles:
     dst: ~/.config/swaync
   f_face:
     src: config/face.png
-    dst: ~/.face
+    dst: ~/.face.png
   d_wallpaper:
     src: config/wallpaper
     dst: ~/wallpaper
