@@ -9,7 +9,7 @@ return {
 		},
 		keys = {
 			{
-				"-",
+				"<leader>e",
 				"<cmd>Neotree position=current reveal toggle<cr>",
 				desc = "Open parent directory",
 			},
