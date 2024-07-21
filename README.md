@@ -20,24 +20,27 @@ Colorschemes are [Catppuccin Macchiato](https://github.com/catppuccin/catppuccin
 ## Usage
 
 1. [Install](https://dotdrop.readthedocs.io/en/latest/installation/) dotdrop as a package.
-1. Clone the repository into a path of your choice, e.g. `~/.config/dot`.
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/sschleemilch/dotfiles.git ~/.dotfiles
+    ```
 1. Run `dotdrop` commands from within that repo or create an alias with `alias dotdrop='dotdrop --cfg=<repo>/config.yaml'`.
 1. `dotdrop install -p <PROFILE>` (check `dotdrop profiles` for available ones)
 
 ## Dependencies
 
-- Nerd Font [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip)
+- A Nerd Font e.g. [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip)
 
-### d_zsh
+### `d_zsh`
 
-- direnv
-- zoxide
-- fzf
-- oh-my-posh
+- [direnv](https://direnv.net/)
+- [zoxide](https://github.com/ajeetdsouza/zoxide)
+- [fzf](https://github.com/junegunn/fzf)
+- [oh-my-posh](https://ohmyposh.dev/)
 
-### d_alacritty
+### `d_alacritty`
 
-- FiraCode Nerd Font
+- [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip)
 
 ### `wsl`
 
