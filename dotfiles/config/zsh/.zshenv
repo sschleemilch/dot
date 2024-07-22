@@ -25,6 +25,10 @@ export https_proxy={{@@ proxy @@}}
 
 path=(
   $HOME/.local/bin(N)
+  /opt/homebrew/bin(N)
   $path
 )
-export PATH
+
+{%@@ if profile == "work" @@%}
+export PATH=/opt/homebrew/opt/python@3.12/libexec/bin:$PATH
+{%@@ endif @@%}

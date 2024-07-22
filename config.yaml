@@ -102,3 +102,11 @@ profiles:
       - f_face
     include:
       - cli
+  work:
+    dotfiles:
+      - d_alacritty
+    include:
+      - cli
+    variables:
+      git_email: sebastian.schleemilch@bmw.de
+      proxy: 127.0.0.1:3128
