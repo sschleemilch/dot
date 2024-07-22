@@ -21,23 +21,8 @@ return {
         "neo-tree",
       },
       options = {
-        theme = "catppuccin",
         section_separators = { left = "", right = "" },
         component_separators = "",
-        globalstatus = true,
-      },
-      sections = {
-        lualine_a = {
-          { "mode", separator = { right = "", left = "" } },
-        },
-        lualine_z = {
-          {
-            function()
-              return " " .. os.date("%R")
-            end,
-            separator = { right = "", left = "" },
-          },
-        },
       },
     },
   },
