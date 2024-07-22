@@ -102,6 +102,13 @@ profiles:
       - f_face
     include:
       - cli
+  lapora:
+    dotfiles:
+      - d_alacritty
+      - d_wallpaper
+      - f_face
+    include:
+      - cli
   work:
     dotfiles:
       - d_alacritty
