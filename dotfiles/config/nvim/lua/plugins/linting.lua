@@ -1,6 +1,6 @@
 return {
   {
-    "folke/persistence.nvim",
+    "mfussenegger/nvim-lint",
     enabled = false,
   },
 }
