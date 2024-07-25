@@ -56,9 +56,6 @@ dotfiles:
     upignore:
       - "*/.zcompdump"
       - "*/.zhistory"
-  d_fsh:
-    src: config/fsh
-    dst: ~/.config/fsh
   d_hypr:
     src: config/hypr
     dst: ~/.config/hypr
@@ -94,7 +91,6 @@ profiles:
       - d_bat
       - d_btop
       - d_zsh
-      - d_fsh
   desora:
     dotfiles:
       - d_alacritty
