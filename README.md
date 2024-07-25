@@ -37,6 +37,11 @@ Colorschemes are [Catppuccin Macchiato](https://github.com/catppuccin/catppuccin
 - [fd](https://github.com/sharkdp/fd)
 - [node.js](https://nodejs.org)
 
+### `d_git`
+
+- [delta](https://github.com/dandavison/delta)
+
+
 ### `d_zsh`
 
 - [direnv](https://direnv.net/)
