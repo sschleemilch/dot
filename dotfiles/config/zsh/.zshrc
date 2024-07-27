@@ -111,6 +111,5 @@ if [ $(command -v "fzf") ]; then
     source <(fzf --zsh)
 fi
 
-if [ $(command -v "oh-my-posh") ]; then
-    eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.json)"
-fi
+source $ZPLUGSDIR/powerlevel10k/powerlevel10k.zsh-theme
+source $ZDOTDIR/.p10k.zsh
