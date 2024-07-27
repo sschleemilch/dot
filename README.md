@@ -47,7 +47,6 @@ Colorschemes are [Catppuccin Macchiato](https://github.com/catppuccin/catppuccin
 - [direnv](https://direnv.net/)
 - [zoxide](https://github.com/ajeetdsouza/zoxide)
 - [fzf](https://github.com/junegunn/fzf)
-- [oh-my-posh](https://ohmyposh.dev/)
 
 ### `d_alacritty`
 
