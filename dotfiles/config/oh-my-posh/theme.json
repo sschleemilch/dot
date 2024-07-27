@@ -117,7 +117,7 @@
     }
   ],
   "transient_prompt": {
-    "foreground": "p:foreground",
+    "foreground": "p:line",
     "background": "transparent",
     "template": "\u276f "
   },
