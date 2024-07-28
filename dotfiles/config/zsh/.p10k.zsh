@@ -362,6 +362,17 @@
   # back to POWERLEVEL9K_DIR_FOREGROUND.
   #
   # typeset -g POWERLEVEL9K_DIR_CLASSES=()
+  typeset -g POWERLEVEL9K_DIR_CLASSES=(
+    '~/workspace(|/*)'  WORK     ' '
+    '~/.config(|/*)'    CONFIG   ' '
+    '~'                 HOME     ' '
+    '*'                 DEFAULT  ' '
+  )
+
+  typeset -g POWERLEVEL9K_DIR_DEFAULT_NOT_WRITABLE_FOREGROUND=0
+  typeset -g POWERLEVEL9K_DIR_DEFAULT_NOT_WRITABLE_BACKGROUND=16
+  typeset -g POWERLEVEL9K_DIR_DEFAULT_NOT_SHORTENED_FOREGROUND=0
+  typeset -g POWERLEVEL9K_DIR_DEFAULT_NOT_ANCHOR_FOREGROUND=0
 
   # Custom prefix.
   # typeset -g POWERLEVEL9K_DIR_PREFIX='in '

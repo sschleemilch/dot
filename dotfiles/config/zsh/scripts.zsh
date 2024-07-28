@@ -8,11 +8,6 @@ reset_nvim() {
     rm -rf ~/.local/state/nvim
 }
 
-colors_fg() {
-  for i in {0..$1}; do printf '\e[38;5;%dm%3d ' $i $i; (((i+3) % 32)) || printf '\e[0m\n'; done
+colors() {
+  for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
-
-colors_bg() {
-  for i in {0..$1}; do printf '\e[48;5;%dm%3d ' $i $i; (((i+3) % 32)) || printf '\e[0m\n'; done
-}
-
