@@ -15,7 +15,7 @@
 [![Alacritty](https://img.shields.io/badge/Alacritty-cad3f5?style=for-the-badge&logo=alacritty&logoColor=black)](https://github.com/alacritty/alacritty)
 
 My dotfiles handled by [dotdrop](https://github.com/deadc0de6/dotdrop).
-Colorschemes are [Catppuccin Macchiato](https://github.com/catppuccin/catppuccin)
+Colorschemes are [Tokyonight-Moon](https://github.com/folke/tokyonight.nvim/)
 
 ## Usage
 
@@ -54,30 +54,30 @@ Colorschemes are [Catppuccin Macchiato](https://github.com/catppuccin/catppuccin
 
 ### `wsl`
 
-- Enabled color schema "Catppuccin Macchiato" in the hosting terminal emulator. E.g. for Windows Terminal:
+- Enabled color schema "Tokyonight-Moon" in the hosting terminal emulator. E.g. for Windows Terminal:
 
 ```json
 {
-  "name": "Catppuccin Macchiato",
-  "cursorColor": "#F4DBD6",
-  "selectionBackground": "#5B6078",
-  "background": "#24273A",
-  "foreground": "#CAD3F5",
-  "black": "#494D64",
-  "red": "#ED8796",
-  "green": "#A6DA95",
-  "yellow": "#EED49F",
-  "blue": "#8AADF4",
-  "purple": "#F5BDE6",
-  "cyan": "#8BD5CA",
-  "white": "#B8C0E0",
-  "brightBlack": "#5B6078",
-  "brightRed": "#ED8796",
-  "brightGreen": "#A6DA95",
-  "brightYellow": "#EED49F",
-  "brightBlue": "#8AADF4",
-  "brightPurple": "#F5BDE6",
-  "brightCyan": "#8BD5CA",
-  "brightWhite": "#A5ADCB"
+    "background": "#222436",
+    "black": "#1b1d2b",
+    "blue": "#82aaff",
+    "brightBlack": "#444a73",
+    "brightBlue": "#82aaff",
+    "brightCyan": "#86e1fc",
+    "brightGreen": "#c3e88d",
+    "brightPurple": "#fca7ea",
+    "brightRed": "#ff757f",
+    "brightWhite": "#c8d3f5",
+    "brightYellow": "#ffc777",
+    "cursorColor": "#c8d3f5",
+    "cyan": "#86e1fc",
+    "foreground": "#c8d3f5",
+    "green": "#c3e88d",
+    "name": "Tokyo Night Moon",
+    "purple": "#c099ff",
+    "red": "#ff757f",
+    "selectionBackground": "#2d3f76",
+    "white": "#828bb8",
+    "yellow": "#ffc777"
 }
 ```
