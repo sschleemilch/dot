@@ -363,11 +363,9 @@
   #
   # typeset -g POWERLEVEL9K_DIR_CLASSES=()
   typeset -g POWERLEVEL9K_DIR_CLASSES=(
-    '~/workspace(|/*)'  WORKS    ' '
-    '~/work(|/*)'       WORK     ' '
-    '~/.config(|/*)'    CONFIG   ' '
-    '~'                 HOME     ' '
-    '*'                 DEFAULT  ' '
+    '~/.config(|/*)'    CONFIG   '󱁿'
+    '~'                 HOME     '󰋜'
+    '*'                 DEFAULT  '󰝰'
   )
 
   typeset -g POWERLEVEL9K_DIR_DEFAULT_NOT_WRITABLE_FOREGROUND=0
@@ -592,7 +590,7 @@
   # Don't show the number of background jobs.
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=false
   # Custom icon.
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION=' '
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='󱤷'
 
   #######################[ direnv: direnv status (https://direnv.net/) ]########################
   # Direnv color.
