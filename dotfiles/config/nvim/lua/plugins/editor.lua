@@ -2,9 +2,8 @@ return {
 	-- search/replace in multiple files
 	{
 		"MagicDuck/grug-far.nvim",
-		config = function()
-			require("grug-far").setup({})
-		end,
+		cmd = "GrugFar",
+		config = true,
 		keys = {
 			{
 				"<leader>sr",
@@ -46,4 +45,25 @@ return {
 		},
 	},
 	{ "christoomey/vim-tmux-navigator" },
+	{
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			winopts = {
+				height = 0.5,
+				width = 0.5,
+				border = "none",
+				preview = {
+					hidden = "hidden",
+				},
+			},
+		},
+		keys = {
+			{ "<leader><leader>", "<cmd>FzfLua files<cr>" },
+			{ "<leader>,", "<cmd>FzfLua buffers<cr>" },
+			{ "<leader>/", "<cmd>FzfLua live_grep<cr>" },
+			{ "<leader>fr", "<cmd>FzfLua oldfiles<cr>" },
+			{ "<leader>fb", "<cmd>FzfLua buffers<cr>" },
+		},
+	},
 }
