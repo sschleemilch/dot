@@ -9,7 +9,7 @@ export SAVEHIST=10000                   # Maximum events in history file
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+export FZF_DEFAULT_OPTS="\
   --highlight-line \
   --info=inline-right \
   --ansi \
