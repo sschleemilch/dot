@@ -47,15 +47,17 @@ return {
 	{ "christoomey/vim-tmux-navigator" },
 	{
 		"ibhagwan/fzf-lua",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
 			winopts = {
 				height = 0.5,
-				width = 0.5,
+				width = 0.85,
 				border = "none",
 				preview = {
 					hidden = "hidden",
 				},
+			},
+			fzf_opts = {
+				["--padding"] = "1,2,2,2",
 			},
 		},
 		keys = {
