@@ -4,6 +4,9 @@ return {
     "MagicDuck/grug-far.nvim",
     cmd = "GrugFar",
     config = true,
+    opts = {
+      windowCreationCommand = "buffer"
+    },
     keys = {
       {
         "<leader>sr",
