@@ -13,6 +13,7 @@ return {
 				"shfmt",
 				"pyright",
 				"ruff",
+				"lua-language-server",
 			},
 		},
 		---@param opts MasonSettings | {ensure_installed: string[]}
