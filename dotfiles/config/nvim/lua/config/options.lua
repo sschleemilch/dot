@@ -10,6 +10,15 @@ opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with 
 opt.confirm = false -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Enable highlighting of the current line
 opt.expandtab = true -- Use spaces instead of tabs
+opt.fillchars = {
+	foldopen = "",
+	foldclose = "",
+	fold = " ",
+	foldsep = " ",
+	diff = "╱",
+	eob = " ",
+}
+opt.foldlevel = 99
 opt.ignorecase = true
 opt.inccommand = "nosplit"
 opt.jumpoptions = "view"
