@@ -12,6 +12,7 @@ return {
 
 			local lspconfig = require("lspconfig")
 			lspconfig.pyright.setup({})
+			lspconfig.ruff.setup({})
 		end,
 		keys = {
 			{ "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },

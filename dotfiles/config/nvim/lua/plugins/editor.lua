@@ -61,11 +61,12 @@ return {
 			},
 		},
 		keys = {
-			{ "<leader><leader>", "<cmd>FzfLua files<cr>" },
-			{ "<leader>,", "<cmd>FzfLua buffers<cr>" },
-			{ "<leader>/", "<cmd>FzfLua live_grep<cr>" },
-			{ "<leader>fr", "<cmd>FzfLua oldfiles<cr>" },
-			{ "<leader>fb", "<cmd>FzfLua buffers<cr>" },
+			{ "<leader><leader>", "<cmd>FzfLua files<cr>", desc = "Files" },
+			{ "<leader>ff", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+			{ "<leader>,", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+			{ "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+			{ "<leader>/", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
+			{ "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Files recent" },
 		},
 	},
 	{
