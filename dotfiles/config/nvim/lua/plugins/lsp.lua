@@ -14,6 +14,11 @@ return {
 			lspconfig.pyright.setup({})
 			lspconfig.ruff.setup({})
 			lspconfig.lua_ls.setup({})
+			lspconfig.dockerls.setup({})
+			lspconfig.gopls.setup({})
+			lspconfig.tsserver.setup({})
+			lspconfig.yamlls.setup({})
+			lspconfig.jsonls.setup({})
 		end,
 		keys = {
 			{ "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },

@@ -11,6 +11,7 @@ return {
 	{
 		"ellisonleao/gruvbox.nvim",
 		lazy = false,
+		enabled = false,
 		priority = 1000,
 		config = function()
 			-- load the colorscheme here
@@ -26,6 +27,7 @@ return {
 		"catppuccin/nvim",
 		lazy = false,
 		name = "catppuccin",
+		enabled = false,
 		priority = 1000,
 		opts = {
 			flavour = "macchiato",

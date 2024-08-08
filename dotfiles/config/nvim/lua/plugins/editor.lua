@@ -56,17 +56,22 @@ return {
 					hidden = "hidden",
 				},
 			},
+			oldfiles = {
+				cwd_only = true,
+			},
 			fzf_opts = {
 				["--padding"] = "1,2,2,2",
 			},
 		},
 		keys = {
 			{ "<leader><leader>", "<cmd>FzfLua files<cr>", desc = "Files" },
-			{ "<leader>ff", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+			{ "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Buffers" },
 			{ "<leader>,", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
 			{ "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
 			{ "<leader>/", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
 			{ "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Files recent" },
+			{ "<leader>fh", "<cmd>FzfLua helptags<cr>", desc = "Help" },
+			{ "<leader>fq", "<cmd>FzfLua quickfix<cr>", desc = "Quickfix" },
 		},
 	},
 	{
@@ -87,6 +92,57 @@ return {
 				delete = { text = "" },
 				topdelete = { text = "" },
 				changedelete = { text = "▎" },
+			},
+		},
+	},
+	{
+		"folke/todo-comments.nvim",
+		event = "VeryLazy",
+		opts = {},
+		keys = {
+			{ "<leader>tc", "<cmd>TodoQuickFix<cr>", desc = "Todos" },
+		},
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		enabled = false,
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
+	},
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		vscode = true,
+		opts = {},
+		keys = {
+			{
+				"s",
+				mode = { "n", "x", "o" },
+				function()
+					require("flash").jump()
+				end,
+				desc = "Flash",
+			},
+			{
+				"S",
+				mode = { "n", "o", "x" },
+				function()
+					require("flash").treesitter()
+				end,
+				desc = "Flash Treesitter",
 			},
 		},
 	},

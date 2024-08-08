@@ -14,6 +14,11 @@ return {
 				"pyright",
 				"ruff",
 				"lua-language-server",
+				"dockerfile-language-server",
+				"gopls",
+				"typescript-language-server",
+				"yaml-language-server",
+				"json-lsp",
 			},
 		},
 		---@param opts MasonSettings | {ensure_installed: string[]}
