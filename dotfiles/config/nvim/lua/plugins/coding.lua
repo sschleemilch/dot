@@ -17,7 +17,7 @@ return {
   },
   {
     "folke/ts-comments.nvim",
-    event = "VeryLazy",
+    event = "BufReadPre",
     opts = {},
   },
   -- Fast and feature-rich surround actions. For text that includes
@@ -26,7 +26,7 @@ return {
   -- and more.
   {
     "echasnovski/mini.surround",
-    event = "VeryLazy",
+    event = "BufReadPre",
     opts = {
       mappings = {
         add = "gsa",        -- Add surrounding in Normal and Visual modes

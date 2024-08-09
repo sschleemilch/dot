@@ -18,6 +18,7 @@ return {
   -- buffer remove
   {
     "echasnovski/mini.bufremove",
+    event = "VeryLazy",
     keys = {
       {
         "<leader>bd",
@@ -80,7 +81,7 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
-    event = "VeryLazy",
+    event = "BufReadPre",
     opts = {
       signs = {
         add = { text = "▎" },
@@ -128,7 +129,7 @@ return {
   },
   {
     "folke/flash.nvim",
-    event = "VeryLazy",
+    event = "BufReadPre",
     vscode = true,
     opts = {},
     keys = {

@@ -1,32 +1,4 @@
 return {
-  {
-    "akinsho/bufferline.nvim",
-    enabled = false,
-    event = "VeryLazy",
-    keys = {
-      { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>",            desc = "Toggle Pin" },
-      { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete Non-Pinned Buffers" },
-      { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>",          desc = "Delete Other Buffers" },
-      { "<leader>br", "<Cmd>BufferLineCloseRight<CR>",           desc = "Delete Buffers to the Right" },
-      { "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>",            desc = "Delete Buffers to the Left" },
-      { "<S-h>",      "<cmd>BufferLineCyclePrev<cr>",            desc = "Prev Buffer" },
-      { "<S-l>",      "<cmd>BufferLineCycleNext<cr>",            desc = "Next Buffer" },
-      { "[b",         "<cmd>BufferLineCyclePrev<cr>",            desc = "Prev Buffer" },
-      { "]b",         "<cmd>BufferLineCycleNext<cr>",            desc = "Next Buffer" },
-      { "[B",         "<cmd>BufferLineMovePrev<cr>",             desc = "Move buffer prev" },
-      { "]B",         "<cmd>BufferLineMoveNext<cr>",             desc = "Move buffer next" },
-    },
-    opts = {
-      options = {
-        always_show_bufferline = false,
-        separator_style = { "", "" },
-        indicator = {
-          style = "none",
-        },
-        show_buffer_close_icons = false,
-      },
-    },
-  },
   -- icons
   {
     "echasnovski/mini.icons",
@@ -115,11 +87,12 @@ return {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "VeryLazy",
+    enabled = true,
+    event = "BufReadPre",
     opts = {
       indent = {
         char = "╎",
-        tab_char = "╎",
+        -- tab_char = "╎",
       },
       scope = { show_start = false, show_end = false },
       exclude = {
