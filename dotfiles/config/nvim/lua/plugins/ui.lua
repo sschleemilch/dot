@@ -86,24 +86,26 @@ return {
     end,
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    enabled = true,
+    "echasnovski/mini.indentscope",
+    version = false,
     event = "BufReadPre",
     opts = {
-      indent = {
-        char = "╎",
-        -- tab_char = "╎",
-      },
-      scope = { show_start = false, show_end = false },
-      exclude = {
-        filetypes = {
+      symbol = "╎",
+      options = { try_as_border = true },
+    },
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "fzf",
           "help",
           "lazy",
           "mason",
         },
-      },
-    },
-    main = "ibl",
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+    end,
   },
   {
     "folke/noice.nvim",
