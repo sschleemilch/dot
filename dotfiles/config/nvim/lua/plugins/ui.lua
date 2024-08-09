@@ -86,7 +86,28 @@ return {
     end,
   },
   {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufReadPre",
+    opts = {
+      indent = {
+        char = "╎",
+        tab_char = "│",
+      },
+      scope = { show_start = false, show_end = false },
+      exclude = {
+        filetypes = {
+          "fzf",
+          "help",
+          "lazy",
+          "mason",
+        },
+      },
+    },
+    main = "ibl",
+  },
+  {
     "echasnovski/mini.indentscope",
+    enabled = false,
     version = false,
     event = "BufReadPre",
     opts = {
