@@ -5,7 +5,7 @@ return {
     cmd = "GrugFar",
     config = true,
     opts = {
-      windowCreationCommand = "buffer"
+      windowCreationCommand = "buffer",
     },
     keys = {
       {
@@ -103,7 +103,7 @@ return {
     event = "VeryLazy",
     opts = {},
     keys = {
-      { "<leader>tc", "<cmd>TodoQuickFix<cr>", desc = "Todos" },
+      { "<leader>ft", "<cmd>TodoQuickFix<cr>", desc = "Todos" },
     },
   },
   {
