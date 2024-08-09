@@ -81,7 +81,7 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
-    event = "BufReadPre",
+    event = "VeryLazy",
     opts = {
       signs = {
         add = { text = "▎" },
@@ -129,7 +129,7 @@ return {
   },
   {
     "folke/flash.nvim",
-    event = "BufReadPre",
+    event = "VeryLazy",
     vscode = true,
     opts = {},
     keys = {

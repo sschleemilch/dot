@@ -87,7 +87,7 @@ return {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPre",
+    event = "VeryLazy",
     opts = {
       indent = {
         char = "╎",
@@ -109,7 +109,7 @@ return {
     "echasnovski/mini.indentscope",
     enabled = false,
     version = false,
-    event = "BufReadPre",
+    event = "VeryLazy",
     opts = {
       symbol = "╎",
       options = { try_as_border = true },

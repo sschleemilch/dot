@@ -1,7 +1,7 @@
 return {
   {
     "echasnovski/mini.pairs",
-    event = "InsertEnter",
+    event = "VeryLazy",
     opts = {
       modes = { insert = true, command = true, terminal = false },
       -- skip autopair when next character is one of these
@@ -17,7 +17,7 @@ return {
   },
   {
     "folke/ts-comments.nvim",
-    event = "BufReadPre",
+    event = "VeryLazy",
     opts = {},
   },
   -- Fast and feature-rich surround actions. For text that includes
@@ -26,15 +26,15 @@ return {
   -- and more.
   {
     "echasnovski/mini.surround",
-    event = "BufReadPre",
+    event = "VeryLazy",
     opts = {
       mappings = {
-        add = "gsa",        -- Add surrounding in Normal and Visual modes
-        delete = "gsd",     -- Delete surrounding
-        find = "gsf",       -- Find surrounding (to the right)
-        find_left = "gsF",  -- Find surrounding (to the left)
-        highlight = "gsh",  -- Highlight surrounding
-        replace = "gsr",    -- Replace surrounding
+        add = "gsa",            -- Add surrounding in Normal and Visual modes
+        delete = "gsd",         -- Delete surrounding
+        find = "gsf",           -- Find surrounding (to the right)
+        find_left = "gsF",      -- Find surrounding (to the left)
+        highlight = "gsh",      -- Highlight surrounding
+        replace = "gsr",        -- Replace surrounding
         update_n_lines = "gsn", -- Update `n_lines`
       },
     },
@@ -42,7 +42,7 @@ return {
   {
     "hrsh7th/nvim-cmp",
     version = false, -- last release is way too old
-    event = "InsertEnter",
+    event = "VeryLazy",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
