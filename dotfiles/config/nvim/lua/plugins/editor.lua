@@ -1,4 +1,18 @@
 return {
+  {
+    'echasnovski/mini.files',
+    version = false,
+    config = true,
+    keys = {
+      {
+        "<leader>e",
+        function()
+          require("mini.files").open(vim.api.nvim_buf_get_name(0))
+        end,
+        desc = "Explorer"
+      },
+    }
+  },
   -- search/replace in multiple files
   {
     "MagicDuck/grug-far.nvim",
@@ -68,15 +82,15 @@ return {
       },
     },
     keys = {
-      { "<leader><leader>", "<cmd>FzfLua files<cr>",     desc = "Files" },
-      { "<leader>ff",       "<cmd>FzfLua files<cr>",     desc = "Buffers" },
-      { "<leader>,",        "<cmd>FzfLua buffers<cr>",   desc = "Buffers" },
-      { "<leader>fb",       "<cmd>FzfLua buffers<cr>",   desc = "Buffers" },
-      { "<leader>/",        "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
-      { "<leader>fr",       "<cmd>FzfLua oldfiles<cr>",  desc = "Files recent" },
-      { "<leader>fh",       "<cmd>FzfLua helptags<cr>",  desc = "Help" },
-      { "<leader>fq",       "<cmd>FzfLua quickfix<cr>",  desc = "Quickfix" },
-      { "<leader>fs",       "<cmd>FzfLua lsp_document_symbols<cr>",  desc = "Symbols" },
+      { "<leader><leader>", "<cmd>FzfLua files<cr>",                desc = "Files" },
+      { "<leader>ff",       "<cmd>FzfLua files<cr>",                desc = "Buffers" },
+      { "<leader>,",        "<cmd>FzfLua buffers<cr>",              desc = "Buffers" },
+      { "<leader>fb",       "<cmd>FzfLua buffers<cr>",              desc = "Buffers" },
+      { "<leader>/",        "<cmd>FzfLua live_grep<cr>",            desc = "Grep" },
+      { "<leader>fr",       "<cmd>FzfLua oldfiles<cr>",             desc = "Files recent" },
+      { "<leader>fh",       "<cmd>FzfLua helptags<cr>",             desc = "Help" },
+      { "<leader>fq",       "<cmd>FzfLua quickfix<cr>",             desc = "Quickfix" },
+      { "<leader>fs",       "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Symbols" },
     },
   },
   {
