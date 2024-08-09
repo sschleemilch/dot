@@ -17,7 +17,6 @@ return {
       lspconfig.dockerls.setup({})
       lspconfig.gopls.setup({})
       lspconfig.tsserver.setup({})
-      lspconfig.yamlls.setup({})
       lspconfig.jsonls.setup({})
     end,
     keys = {

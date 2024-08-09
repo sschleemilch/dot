@@ -17,7 +17,6 @@ return {
         "dockerfile-language-server",
         "gopls",
         "typescript-language-server",
-        "yaml-language-server",
         "json-lsp",
       },
     },
