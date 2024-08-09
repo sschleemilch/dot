@@ -75,6 +75,7 @@ return {
       { "<leader>fr",       "<cmd>FzfLua oldfiles<cr>",  desc = "Files recent" },
       { "<leader>fh",       "<cmd>FzfLua helptags<cr>",  desc = "Help" },
       { "<leader>fq",       "<cmd>FzfLua quickfix<cr>",  desc = "Quickfix" },
+      { "<leader>fs",       "<cmd>FzfLua lsp_document_symbols<cr>",  desc = "Symbols" },
     },
   },
   {

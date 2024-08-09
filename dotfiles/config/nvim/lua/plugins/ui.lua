@@ -53,7 +53,10 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "branch" },
         lualine_c = {
-          "filename",
+          {
+            "filename",
+            path = 1
+          },
           {
             "diagnostics",
             symbols = {
@@ -95,6 +98,7 @@ return {
               end
             end,
           },
+          "filetype",
         },
       },
     },
@@ -110,12 +114,23 @@ return {
     end,
   },
   {
-    "echasnovski/mini.indentscope",
-    version = false,
-    config = true,
+    "lukas-reineke/indent-blankline.nvim",
+    event = "VeryLazy",
     opts = {
-      -- symbol = "│",
+      indent = {
+        char = "╎",
+        tab_char = "╎",
+      },
+      scope = { show_start = false, show_end = false },
+      exclude = {
+        filetypes = {
+          "help",
+          "lazy",
+          "mason",
+        },
+      },
     },
+    main = "ibl",
   },
   {
     "folke/noice.nvim",
@@ -160,7 +175,7 @@ return {
       },
       presets = {
         bottom_search = true,
-        command_palette = false,
+        command_palette = true,
         long_message_to_split = true,
       },
     },
