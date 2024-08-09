@@ -9,7 +9,6 @@ return {
     opts_extend = { "ensure_installed" },
     opts = {
       ensure_installed = {
-        "stylua",
         "shfmt",
         "pyright",
         "ruff",
@@ -18,6 +17,7 @@ return {
         "gopls",
         "typescript-language-server",
         "json-lsp",
+        "prettier"
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
